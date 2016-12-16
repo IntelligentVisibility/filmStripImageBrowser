@@ -1,6 +1,10 @@
 #tag Class
 Protected Class PictureClass
 	#tag Property, Flags = &h0
+		fFolderItem As FolderItem
+	#tag EndProperty
+
+	#tag Property, Flags = &h0
 		Height As Integer
 	#tag EndProperty
 

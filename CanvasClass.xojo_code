@@ -6,15 +6,16 @@ Inherits Canvas
 		  Dim thisObject as DragItem = obj
 		  Dim thisAction as Integer = action
 		  
-		  Select Case thisObject.FolderItem.Directory
+		  dim fItem as FolderItem = thisObject.FolderItem
+		  
+		  Select Case fItem.Directory
 		  Case True
 		    // PROCESS FOLDER OF IMAGES
-		    addDirectory(thisObject.FolderItem)
+		    addDirectory(fItem)
 		    
 		  Case False
 		    // PROCESS IMAGE FILE
-		    Dim thisImage as Picture = Picture.Open(thisObject.FolderItem)
-		    addImage(thisImage)
+		    addImage(fItem)
 		    
 		  End Select
 		  
@@ -40,12 +41,12 @@ Inherits Canvas
 		  
 		  // SET CANVAS PROPERTIES FOR WIN/MAC
 		  #If TargetWin32 Then
-		        Me.DoubleBuffer = True
-		        Me.EraseBackground = False
-		    #Else
-		        Me.DoubleBuffer = False
-		        Me.EraseBackground = False
-		    #Endif
+		    Me.DoubleBuffer = True
+		    Me.EraseBackground = False
+		  #Else
+		    Me.DoubleBuffer = False
+		    Me.EraseBackground = False
+		  #Endif
 		End Sub
 	#tag EndEvent
 
@@ -56,46 +57,34 @@ Inherits Canvas
 		  If dirFolderItem <> Nil Then
 		    Dim thisPic as Picture
 		    Dim fileFolderitem as FolderItem
+		    
 		    For i as Integer = 1 to dirFolderItem.Count
 		      fileFolderitem = dirFolderItem.Item(i)
 		      thisPic = Picture.Open(fileFolderitem)
-		      If thisPic <> Nil Then
-		        Dim thisPictureClassEntry as New PictureClass
-		        thisPictureClassEntry.pictureImage = thisPic
-		        thisPictureClassEntry.width = thisPictureClassEntry.pictureImage.Width
-		        thisPictureClassEntry.Height = thisPictureClassEntry.pictureImage.Height
-		        pictureArray.Append thisPictureClassEntry
-		      End If
-		    Next i
+		      
+		      if thisPic = nil then continue
+		      
+		      addImage(fileFolderitem)
+		      
+		    Next
+		    
 		  End If
-		  
-		  // DRAW CANVAS
-		  Self.Invalidate(False)
-		  Window1.AnimateButton.Enabled = True
-		  Window1.AnimateButton.Enabled = True
-		  Window1.ScrollBar1.Maximum = Window1.calculateScrollW()
-		  
-		  Return
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Sub addImage(imageToAdd as picture)
+		Sub addImage(fItem as FolderItem)
 		  // ADD PICTURE CLASS TO PICTURE ARRAY
 		  Dim thisPictureClassEntry as New PictureClass
-		  thisPictureClassEntry.pictureImage = imageToAdd
+		  thisPictureClassEntry.pictureImage = Picture.Open(fItem)
+		  thisPictureClassEntry.fFolderItem = fItem
 		  thisPictureClassEntry.width = thisPictureClassEntry.pictureImage.Width
 		  thisPictureClassEntry.Height = thisPictureClassEntry.pictureImage.Height
 		  pictureArray.Append thisPictureClassEntry
 		  
 		  // DRAW CANVAS
 		  Self.Invalidate(False)
-		  
-		  Window1.AnimateButton.Enabled = True
-		  Window1.ScrollBar1.Maximum = Window1.calculateScrollW()
-		  
-		  
-		  Return
+		  NewImageReady
 		End Sub
 	#tag EndMethod
 
@@ -115,20 +104,21 @@ Inherits Canvas
 		    
 		    for i as integer = 0 to pictureArray.Ubound
 		      pictureArray(i).left = pictureArray(i).left + valToNudge
-		     next i
+		    next i
 		    
 		  Case 1
 		    // RIGHT TO LEFT
 		    If pictureArray.Ubound <> -1 Then
 		      Dim thisMarker as Integer = pictureArray(pictureArray.Ubound).left + thumbW
 		      If thisMarker < 0 Then
-		        pictureArray(0).left = Window1.Width - Window1.Left 
+		        // Reset images to begin scrolling again
+		        pictureArray(0).left = me.width
 		      End If
 		    End If
 		    
 		    for i as integer = 0 to pictureArray.Ubound
 		      pictureArray(i).left = pictureArray(i).left - valToNudge
-		     next i
+		    next i
 		    
 		  End Select
 		  
@@ -138,15 +128,27 @@ Inherits Canvas
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
+		Sub Clear()
+		  redim pictureArray(-1)
+		  me.Invalidate(False)
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
 		Sub nudge(valToNudge as Integer)
 		  // THIS METHOD NUDGES ALL PICTURECLASS ARRAY IMAGE LEFT POSITIONS
 		  for i as integer = 0 to pictureArray.Ubound
 		    pictureArray(i).left = pictureArray(i).left + valToNudge
-		   next i
+		  next i
 		  
 		  Self.Invalidate(False)
 		End Sub
 	#tag EndMethod
+
+
+	#tag Hook, Flags = &h0
+		Event NewImageReady()
+	#tag EndHook
 
 
 	#tag Property, Flags = &h0
