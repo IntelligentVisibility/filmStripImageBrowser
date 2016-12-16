@@ -853,6 +853,7 @@ End
 		  Redim Canvas1.pictureArray(-1)
 		  Canvas1.Invalidate(False)
 		  AnimateButton.Enabled = False
+		  ScrollBar1.Enabled = False
 		End Sub
 	#tag EndEvent
 #tag EndEvents
