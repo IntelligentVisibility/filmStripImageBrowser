@@ -72,6 +72,8 @@ Inherits Canvas
 		  // DRAW CANVAS
 		  Self.Invalidate(False)
 		  Window1.AnimateButton.Enabled = True
+		  Window1.AnimateButton.Enabled = True
+		  Window1.ScrollBar1.Maximum = Window1.calculateScrollW()
 		  
 		  Return
 		End Sub
