@@ -993,7 +993,7 @@ End
 		    Me.thisScaledH = thisImage.Height * me.thumbPercFactor
 		    
 		    // PREPARE IMAGE NAME PROPERTIES
-		    g.TextSize = 16 * me.thumbPercFactor
+		    g.TextSize = 16
 		    g.TextFont = "System"
 		    Dim thisImageName as String = Me.pictureArray(i).fFolderItem.Name
 		    Dim thisImageNameXPOS, thisImageNameYPOS as Integer 
