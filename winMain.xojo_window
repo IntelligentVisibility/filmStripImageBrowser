@@ -749,6 +749,10 @@ End
 		animationDirection As Integer
 	#tag EndProperty
 
+	#tag Property, Flags = &h21
+		Private isAnimating As Boolean
+	#tag EndProperty
+
 	#tag Property, Flags = &h0
 		nudgeVal As Integer
 	#tag EndProperty
@@ -814,6 +818,22 @@ End
 		  ScrollBar1.Maximum = calculateScrollW()
 		End Sub
 	#tag EndEvent
+	#tag Event
+		Sub MouseEnter()
+		  Select Case isAnimating
+		  Case True
+		    tmrAnimationHandler.Mode = Timer.ModeOff
+		  End Select
+		End Sub
+	#tag EndEvent
+	#tag Event
+		Sub MouseExit()
+		  Select Case isAnimating
+		  Case True
+		    tmrAnimationHandler.Mode = Timer.ModeMultiple
+		  End Select
+		End Sub
+	#tag EndEvent
 #tag EndEvents
 #tag Events tmrAnimationHandler
 	#tag Event
@@ -832,11 +852,13 @@ End
 		    tmrAnimationHandler.Mode = timer.ModeMultiple
 		    Me.Caption = "Stop"
 		    ScrollBar1.Enabled = False
+		    isAnimating = True
 		    
 		  Elseif tmrAnimationHandler.Mode = timer.ModeMultiple Then
 		    tmrAnimationHandler.Mode = timer.ModeOff
 		    Me.Caption = "Animate"
 		    ScrollBar1.Enabled = True
+		    isAnimating = False
 		  End If
 		End Sub
 	#tag EndEvent
