@@ -77,7 +77,7 @@ Inherits Canvas
 		  thisPictureClassEntry.fFolderItem = fItem
 		  thisPictureClassEntry.width = thisPictureClassEntry.pictureImage.Width
 		  thisPictureClassEntry.Height = thisPictureClassEntry.pictureImage.Height
-		  thisPictureClassEntry.fFolderItem.Name = thisPictureClassEntry.fFolderItem.Name
+		  thisPictureClassEntry.imageName = thisPictureClassEntry.fFolderItem.Name
 		  pictureArray.Append thisPictureClassEntry
 		  
 		  
@@ -297,11 +297,6 @@ Inherits Canvas
 			Group="ID"
 			Type="String"
 			EditorType="String"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="showImageNames"
-			Group="Behavior"
-			Type="Boolean"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Super"

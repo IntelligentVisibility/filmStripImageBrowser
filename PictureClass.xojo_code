@@ -9,15 +9,15 @@ Protected Class PictureClass
 	#tag EndProperty
 
 	#tag Property, Flags = &h0
+		imageName As string
+	#tag EndProperty
+
+	#tag Property, Flags = &h0
 		imageNameXpos As Integer
 	#tag EndProperty
 
 	#tag Property, Flags = &h0
 		imageNameYpos As Integer
-	#tag EndProperty
-
-	#tag Property, Flags = &h0
-		imageRect As REALbasic.Rect
 	#tag EndProperty
 
 	#tag Property, Flags = &h0
@@ -40,21 +40,6 @@ Protected Class PictureClass
 	#tag ViewBehavior
 		#tag ViewProperty
 			Name="Height"
-			Group="Behavior"
-			Type="Integer"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="imageName"
-			Group="Behavior"
-			Type="string"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="imageNameXpos"
-			Group="Behavior"
-			Type="Integer"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="imageNameYpos"
 			Group="Behavior"
 			Type="Integer"
 		#tag EndViewProperty
