@@ -25,7 +25,7 @@ Begin Window winMain
    Resizeable      =   True
    Title           =   "Filmstrip Image Browser"
    Visible         =   True
-   Width           =   550
+   Width           =   664
    Begin CanvasClass cvsScroller
       AcceptFocus     =   False
       AcceptTabs      =   False
@@ -36,6 +36,7 @@ Begin Window winMain
       EraseBackground =   True
       Height          =   194
       HelpTag         =   ""
+      imageSpacer     =   0
       Index           =   -2147483648
       InitialParent   =   ""
       Left            =   0
@@ -54,7 +55,7 @@ Begin Window winMain
       Transparent     =   True
       UseFocusRing    =   True
       Visible         =   True
-      Width           =   550
+      Width           =   664
    End
    Begin Timer tmrAnimationHandler
       Index           =   -2147483648
@@ -440,7 +441,7 @@ Begin Window winMain
       Top             =   249
       Value           =   0
       Visible         =   True
-      Width           =   374
+      Width           =   486
    End
    Begin GroupBox grpThumbSizingControls
       AutoDeactivate  =   True
@@ -465,7 +466,7 @@ Begin Window winMain
       TextFont        =   "System"
       TextSize        =   0.0
       TextUnit        =   0
-      Top             =   292
+      Top             =   291
       Underline       =   False
       Visible         =   True
       Width           =   124
@@ -497,7 +498,7 @@ Begin Window winMain
          TextFont        =   "System"
          TextSize        =   0.0
          TextUnit        =   0
-         Top             =   292
+         Top             =   299
          Transparent     =   True
          Underline       =   False
          Visible         =   True
@@ -529,7 +530,7 @@ Begin Window winMain
          TextFont        =   "System"
          TextSize        =   0.0
          TextUnit        =   0
-         Top             =   328
+         Top             =   327
          Underline       =   False
          Visible         =   True
          Width           =   106
@@ -702,7 +703,7 @@ Begin Window winMain
       Index           =   -2147483648
       InitialParent   =   ""
       Italic          =   False
-      Left            =   487
+      Left            =   598
       LockBottom      =   True
       LockedInPosition=   False
       LockLeft        =   False
@@ -715,10 +716,149 @@ Begin Window winMain
       TextFont        =   "System"
       TextSize        =   0.0
       TextUnit        =   0
-      Top             =   215
+      Top             =   221
       Underline       =   False
       Visible         =   True
       Width           =   50
+   End
+   Begin GroupBox grpThumbSizingControls1
+      AutoDeactivate  =   True
+      Bold            =   False
+      Caption         =   ""
+      Enabled         =   True
+      Height          =   71
+      HelpTag         =   ""
+      Index           =   -2147483648
+      InitialParent   =   ""
+      Italic          =   False
+      Left            =   547
+      LockBottom      =   True
+      LockedInPosition=   False
+      LockLeft        =   True
+      LockRight       =   False
+      LockTop         =   False
+      Scope           =   0
+      TabIndex        =   35
+      TabPanelIndex   =   0
+      TabStop         =   True
+      TextFont        =   "System"
+      TextSize        =   0.0
+      TextUnit        =   0
+      Top             =   291
+      Underline       =   False
+      Visible         =   True
+      Width           =   100
+      Begin Label imageSpacer_Label
+         AutoDeactivate  =   True
+         Bold            =   False
+         DataField       =   ""
+         DataSource      =   ""
+         Enabled         =   True
+         Height          =   20
+         HelpTag         =   ""
+         Index           =   -2147483648
+         InitialParent   =   "grpThumbSizingControls1"
+         Italic          =   False
+         Left            =   554
+         LockBottom      =   True
+         LockedInPosition=   False
+         LockLeft        =   True
+         LockRight       =   False
+         LockTop         =   False
+         Multiline       =   False
+         Scope           =   0
+         Selectable      =   False
+         TabIndex        =   0
+         TabPanelIndex   =   0
+         Text            =   "Image Spaces"
+         TextAlign       =   0
+         TextColor       =   &c00000000
+         TextFont        =   "System"
+         TextSize        =   0.0
+         TextUnit        =   0
+         Top             =   300
+         Transparent     =   True
+         Underline       =   False
+         Visible         =   True
+         Width           =   118
+      End
+      Begin TextField imageSpacer_Textfield
+         AcceptTabs      =   False
+         Alignment       =   2
+         AutoDeactivate  =   True
+         AutomaticallyCheckSpelling=   False
+         BackColor       =   &cFFFFFF00
+         Bold            =   False
+         Border          =   True
+         CueText         =   ""
+         DataField       =   ""
+         DataSource      =   ""
+         Enabled         =   True
+         Format          =   ""
+         Height          =   22
+         HelpTag         =   ""
+         Index           =   -2147483648
+         InitialParent   =   "grpThumbSizingControls1"
+         Italic          =   False
+         Left            =   556
+         LimitText       =   0
+         LockBottom      =   True
+         LockedInPosition=   False
+         LockLeft        =   True
+         LockRight       =   False
+         LockTop         =   False
+         Mask            =   ""
+         Password        =   False
+         ReadOnly        =   False
+         Scope           =   0
+         TabIndex        =   1
+         TabPanelIndex   =   0
+         TabStop         =   True
+         Text            =   ""
+         TextColor       =   &c00000000
+         TextFont        =   "System"
+         TextSize        =   11.0
+         TextUnit        =   0
+         Top             =   326
+         Underline       =   False
+         UseFocusRing    =   False
+         Visible         =   True
+         Width           =   55
+      End
+      Begin Label pixel_Label
+         AutoDeactivate  =   True
+         Bold            =   False
+         DataField       =   ""
+         DataSource      =   ""
+         Enabled         =   True
+         Height          =   20
+         HelpTag         =   ""
+         Index           =   -2147483648
+         InitialParent   =   "grpThumbSizingControls1"
+         Italic          =   False
+         Left            =   616
+         LockBottom      =   True
+         LockedInPosition=   False
+         LockLeft        =   True
+         LockRight       =   False
+         LockTop         =   False
+         Multiline       =   False
+         Scope           =   0
+         Selectable      =   False
+         TabIndex        =   2
+         TabPanelIndex   =   0
+         Text            =   "px"
+         TextAlign       =   0
+         TextColor       =   &c00000000
+         TextFont        =   "System"
+         TextSize        =   0.0
+         TextUnit        =   0
+         Top             =   325
+         Transparent     =   True
+         Underline       =   False
+         Visible         =   True
+         Width           =   35
+      End
    End
 End
 #tag EndWindow
@@ -767,34 +907,64 @@ End
 #tag Events cvsScroller
 	#tag Event
 		Sub Paint(g As Graphics, areas() As REALbasic.Rect)
-		  // DRAW A WHITE BACKGROUND ON CANVAS TO SHOW ITS BOUNDARY EASIER
+		  // PREPARE CANVAS AESTHETICAL PROPERTIES
 		  g.ForeColor = &cFFFFFF
 		  g.FillRect(0,0,me.Width, me.Height)
-		  
-		  // PAINT TOP/BOTTOM LINES
 		  g.ForeColor = &c9F9E9E
 		  g.DrawLine(0,0, me.Width,0)
 		  g.DrawLine(0,me.Height-1, me.Width, me.Height-1)
+		  g.AntiAlias = True
 		  
 		  // LOOP PICTURE ARRAY TO DRAW EACH IMAGE
 		  For i As Integer = 0 To Me.pictureArray.Ubound
 		    
-		    // DRAW PICTURES ON CANVAS
+		    // PREPARE IMAGE PROPERTIES
 		    Dim thisLeftPOS, thisTopPOS as Integer
 		    Dim thisImage as Picture = Me.pictureArray(i).pictureImage
 		    Me.thisScaledW  = thisImage.Width * me.thumbPercFactor
 		    Me.thisScaledH = thisImage.Height * me.thumbPercFactor
-		    If i <> 0 Then
-		      Me.pictureArray(i).left = (Me.pictureArray(i-1).left + Me.thisScaledW + 2)
-		      thisLeftPOS = Me.pictureArray(i).left
-		      thisTopPOS = 5 
+		    
+		    // PREPARE IMAGE NAME PROPERTIES
+		    g.TextSize = 16 * me.thumbPercFactor
+		    g.TextFont = "System"
+		    Dim thisImageName as String = Me.pictureArray(i).imageName
+		    Dim thisImageNameXPOS, thisImageNameYPOS as Integer 
+		    Dim thisImageNameH as Integer = (g.StringHeight(thisImageName, 800) + 10)
+		    Dim thisImageNameW as Double = g.StringWidth(thisImageName)
+		    Dim wrapWidth as Integer
+		    If  i = 0 Then
+		      // DRAW FIRST IMAGE ONLY ON CANVAS
 		      
-		    Elseif i = 0 Then
-		      thisLeftPOS = (Me.pictureArray(i).left)
-		      thisTopPOS = 5
+		      // X-POS CALULCATION
+		      thisLeftPOS = Me.pictureArray(i).left
+		      Me.pictureArray(i).imageNameXpos = thisLeftPOS
+		      wrapWidth = Me.thisScaledW + 4
+		      
+		      // Y-POS CALULCATION
+		      thisTopPOS = 20
+		      Me.pictureArray(i).imageNameYpos = thisTopPOS + Me.thisScaledH + thisImageNameH
+		      
+		    Elseif i <> 0 THEN
+		      // DRAW ALL REMAINING IMAGES ON CANVAS
+		      // X-POS CALULCATION
+		      Dim lastImgScaledW as Integer =  (Me.pictureArray(i-1).pictureImage.Width +  Me.imageSpacer) * me.thumbPercFactor
+		      Me.pictureArray(i).left = Me.pictureArray(i-1).left  +  lastImgScaledW
+		      thisLeftPOS = Me.pictureArray(i).left
+		      Me.pictureArray(i).imageNameXpos = thisLeftPOS
+		      wrapWidth = Me.thisScaledW + 4
+		      
+		      // Y-POS CALULCATION
+		      thisTopPOS = 20
+		      Me.pictureArray(i).imageNameYpos = thisTopPOS + Me.thisScaledH + thisImageNameH
 		    End If
 		    
+		    // DRAW IMAGE
 		    g.DrawPicture(thisImage, thisLeftPOS, thisTopPOS, Me.thisScaledW, Me.thisScaledH, 0, 0, thisImage.Width, thisImage.Height)
+		    
+		    // DRAW IMAGE NAME
+		    g.ForeColor = &c000000
+		    dim test as integer = g.TextSize
+		    g.DrawString(thisImageName, Me.pictureArray(i).imageNameXpos, Me.pictureArray(i).imageNameYpos, wrapWidth)
 		    
 		  Next i
 		  
@@ -931,6 +1101,7 @@ End
 		Sub ValueChanged()
 		  for i as integer = 0 to cvsScroller.pictureArray.Ubound
 		    cvsScroller.pictureArray(i).left = -me.value
+		    cvsScroller.pictureArray(i).imageNameXpos = -me.value
 		  next i
 		  cvsScroller.Invalidate(False)
 		End Sub
@@ -1004,6 +1175,24 @@ End
 		  cvsScroller.Clear
 		  AnimateButton.Enabled = False
 		  ScrollBar1.Enabled = False
+		End Sub
+	#tag EndEvent
+#tag EndEvents
+#tag Events imageSpacer_Textfield
+	#tag Event
+		Sub TextChange()
+		  // SET THE PIXEL STEP VALUE
+		  Dim thisStrVal as String = Trim(Me.Text)
+		  Dim thisVal as Double = CDbl(thisStrVal)
+		  cvsScroller.imageSpacer  = thisVal
+		  cvsScroller.Invalidate(False)
+		End Sub
+	#tag EndEvent
+	#tag Event
+		Sub Open()
+		  Dim thisStartVal as Integer = 25
+		  Me.Text = Str(thisStartVal)
+		  cvsScroller.imageSpacer = thisStartVal
 		End Sub
 	#tag EndEvent
 #tag EndEvents

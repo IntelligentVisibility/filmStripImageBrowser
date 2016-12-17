@@ -43,6 +43,7 @@ Inherits Canvas
 		    Me.DoubleBuffer = False
 		    Me.EraseBackground = False
 		  #Endif
+		  
 		End Sub
 	#tag EndEvent
 
@@ -76,7 +77,14 @@ Inherits Canvas
 		  thisPictureClassEntry.fFolderItem = fItem
 		  thisPictureClassEntry.width = thisPictureClassEntry.pictureImage.Width
 		  thisPictureClassEntry.Height = thisPictureClassEntry.pictureImage.Height
+		  thisPictureClassEntry.imageName = thisPictureClassEntry.fFolderItem.Name
 		  pictureArray.Append thisPictureClassEntry
+		  
+		  
+		  // SET FIRST IMAGE DEFAULT XPOS
+		  If pictureArray.Ubound = 0 Then
+		    pictureArray(0).left = 20
+		  End If
 		  
 		  // DRAW CANVAS
 		  Self.Invalidate(False)
@@ -135,6 +143,7 @@ Inherits Canvas
 		  // THIS METHOD NUDGES ALL PICTURECLASS ARRAY IMAGE LEFT POSITIONS
 		  for i as integer = 0 to pictureArray.Ubound
 		    pictureArray(i).left = pictureArray(i).left + valToNudge
+		    pictureArray(i).imageNameXpos = pictureArray(i).imageNameXpos + valToNudge
 		  next i
 		  
 		  Self.Invalidate(False)
@@ -146,6 +155,10 @@ Inherits Canvas
 		Event NewImageReady()
 	#tag EndHook
 
+
+	#tag Property, Flags = &h0
+		imageSpacer As Integer
+	#tag EndProperty
 
 	#tag Property, Flags = &h0
 		pictureArray() As PictureClass
@@ -225,6 +238,11 @@ Inherits Canvas
 			Group="Appearance"
 			Type="String"
 			EditorType="MultiLineEditor"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="imageSpacer"
+			Group="Behavior"
+			Type="Integer"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Index"
