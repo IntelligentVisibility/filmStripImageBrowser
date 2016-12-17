@@ -46,11 +46,13 @@ Begin Window winMain
       LockRight       =   True
       LockTop         =   True
       Scope           =   0
+      showImageNames  =   False
       TabIndex        =   4
       TabPanelIndex   =   0
       TabStop         =   True
       thisScaledH     =   0
       thisScaledW     =   0
+      thumbPercFactor =   0.0
       Top             =   15
       Transparent     =   True
       UseFocusRing    =   True
@@ -1003,12 +1005,17 @@ End
 		      
 		      // X-POS CALULCATION
 		      thisLeftPOS = Me.pictureArray(i).left
+		      // UPDATE RECT X POS
+		      Me.pictureArray(i).imageRect.Left = thisLeftPOS
+		      // UPDATE IMAGE NAME X/Y POS
 		      Me.pictureArray(i).imageNameXpos = thisLeftPOS
 		      wrapWidth = Me.thisScaledW + 4
 		      
 		      // Y-POS CALULCATION
 		      thisTopPOS = 20
 		      Me.pictureArray(i).imageNameYpos = thisTopPOS + Me.thisScaledH + thisImageNameH
+		      // UPDATE RECT Y POS
+		      Me.pictureArray(i).imageRect.Top = thisTopPOS
 		      
 		    Elseif i <> 0 THEN
 		      // DRAW ALL REMAINING IMAGES ON CANVAS
@@ -1016,12 +1023,17 @@ End
 		      Dim lastImgScaledW as Integer =  (Me.pictureArray(i-1).pictureImage.Width +  Me.imageSpacer) * me.thumbPercFactor
 		      Me.pictureArray(i).left = Me.pictureArray(i-1).left  +  lastImgScaledW
 		      thisLeftPOS = Me.pictureArray(i).left
+		      // UPDATE RECT X/Y POS
+		      Me.pictureArray(i).imageRect.Left = thisLeftPOS
+		      // UPDATE IMAGE NAME X/Y POS
 		      Me.pictureArray(i).imageNameXpos = thisLeftPOS
 		      wrapWidth = Me.thisScaledW + 4
 		      
 		      // Y-POS CALULCATION
 		      thisTopPOS = 20
 		      Me.pictureArray(i).imageNameYpos = thisTopPOS + Me.thisScaledH + thisImageNameH
+		      // UPDATE RECT Y POS
+		      Me.pictureArray(i).imageRect.Top = thisTopPOS
 		    End If
 		    
 		    // DRAW IMAGE
@@ -1070,6 +1082,30 @@ End
 		  Case True
 		    tmrAnimationHandler.Mode = Timer.ModeMultiple
 		  End Select
+		End Sub
+	#tag EndEvent
+	#tag Event
+		Sub DoubleClick(X As Integer, Y As Integer)
+		  #Pragma DisableBoundsChecking
+		  #Pragma DisableBackgroundTasks
+		  
+		  Dim i as integer
+		  
+		  Dim theClickedPoint as REALbasic.Point
+		  theClickedPoint =  new realbasic.point(x,y)
+		  
+		  If me.pictureArray.Ubound <> -1 Then
+		    For i = 0 to me.pictureArray.Ubound
+		      
+		      If me.pictureArray(i).imageRect <> NIL then
+		        if me.pictureArray(i).imageRect.Contains ( theClickedPoint) = True Then
+		          me.pictureArray(i).fFolderItem.Launch(True)
+		        end if
+		      End If
+		      
+		      
+		    Next i
+		  End If
 		End Sub
 	#tag EndEvent
 #tag EndEvents
@@ -1190,7 +1226,7 @@ End
 		  Dim thisValStr as String = thisValRawStr.left(startTrim)
 		  Dim thisVal as Double = CDbl(thisValStr)/100
 		  cvsScroller.thumbPercFactor = thisVal
-		   cvsScroller.Invalidate(False)
+		  cvsScroller.Invalidate(False)
 		End Sub
 	#tag EndEvent
 	#tag Event
@@ -1258,7 +1294,7 @@ End
 	#tag EndEvent
 	#tag Event
 		Sub Open()
-		  Dim thisStartVal as Integer = 25
+		  Dim thisStartVal as Integer = 50
 		  Me.Text = Str(thisStartVal)
 		  cvsScroller.imageSpacer = thisStartVal
 		End Sub
