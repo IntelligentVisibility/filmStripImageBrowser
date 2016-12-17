@@ -9,7 +9,7 @@ Begin Window winMain
    FullScreen      =   False
    FullScreenButton=   False
    HasBackColor    =   False
-   Height          =   350
+   Height          =   376
    ImplicitInstance=   True
    LiveResize      =   True
    MacProcID       =   0
@@ -25,7 +25,7 @@ Begin Window winMain
    Resizeable      =   True
    Title           =   "Filmstrip Image Browser"
    Visible         =   True
-   Width           =   626
+   Width           =   550
    Begin CanvasClass cvsScroller
       AcceptFocus     =   False
       AcceptTabs      =   False
@@ -34,7 +34,7 @@ Begin Window winMain
       DoubleBuffer    =   False
       Enabled         =   True
       EraseBackground =   True
-      Height          =   187
+      Height          =   194
       HelpTag         =   ""
       Index           =   -2147483648
       InitialParent   =   ""
@@ -48,13 +48,13 @@ Begin Window winMain
       TabIndex        =   4
       TabPanelIndex   =   0
       TabStop         =   True
-      thumbH          =   0
-      thumbW          =   0
-      Top             =   13
+      thisScaledH     =   0
+      thisScaledW     =   0
+      Top             =   15
       Transparent     =   True
       UseFocusRing    =   True
       Visible         =   True
-      Width           =   626
+      Width           =   550
    End
    Begin Timer tmrAnimationHandler
       Index           =   -2147483648
@@ -81,7 +81,7 @@ Begin Window winMain
       TabIndex        =   9
       TabPanelIndex   =   0
       TabStop         =   True
-      Top             =   212
+      Top             =   238
       Visible         =   True
       Width           =   21
    End
@@ -108,10 +108,10 @@ Begin Window winMain
       TextFont        =   "System"
       TextSize        =   0.0
       TextUnit        =   0
-      Top             =   266
+      Top             =   292
       Underline       =   False
       Visible         =   True
-      Width           =   586
+      Width           =   379
       Begin PushButton AnimateButton
          AutoDeactivate  =   True
          Bold            =   False
@@ -125,7 +125,7 @@ Begin Window winMain
          Index           =   -2147483648
          InitialParent   =   "grpAnimationControls"
          Italic          =   False
-         Left            =   445
+         Left            =   307
          LockBottom      =   True
          LockedInPosition=   False
          LockLeft        =   True
@@ -138,7 +138,7 @@ Begin Window winMain
          TextFont        =   "System"
          TextSize        =   0.0
          TextUnit        =   0
-         Top             =   300
+         Top             =   327
          Underline       =   False
          Visible         =   True
          Width           =   80
@@ -171,7 +171,7 @@ Begin Window winMain
          TextFont        =   "System"
          TextSize        =   0.0
          TextUnit        =   0
-         Top             =   276
+         Top             =   302
          Transparent     =   True
          Underline       =   False
          Visible         =   True
@@ -214,7 +214,7 @@ Begin Window winMain
          TextFont        =   "System"
          TextSize        =   11.0
          TextUnit        =   0
-         Top             =   301
+         Top             =   327
          Underline       =   False
          UseFocusRing    =   False
          Visible         =   True
@@ -257,7 +257,7 @@ Begin Window winMain
          TextFont        =   "System"
          TextSize        =   11.0
          TextUnit        =   0
-         Top             =   301
+         Top             =   327
          Underline       =   False
          UseFocusRing    =   False
          Visible         =   True
@@ -291,7 +291,7 @@ Begin Window winMain
          TextFont        =   "System"
          TextSize        =   0.0
          TextUnit        =   0
-         Top             =   276
+         Top             =   302
          Transparent     =   True
          Underline       =   False
          Visible         =   True
@@ -313,7 +313,7 @@ Begin Window winMain
          Segments        =   "L to R\n\nTrue\rR to L\n\nFalse"
          SelectionType   =   0
          TabPanelIndex   =   0
-         Top             =   301
+         Top             =   327
          Visible         =   True
          Width           =   104
       End
@@ -345,196 +345,11 @@ Begin Window winMain
          TextFont        =   "System"
          TextSize        =   0.0
          TextUnit        =   0
-         Top             =   276
+         Top             =   302
          Transparent     =   True
          Underline       =   False
          Visible         =   True
          Width           =   107
-      End
-      Begin Label lblThumbW
-         AutoDeactivate  =   True
-         Bold            =   False
-         DataField       =   ""
-         DataSource      =   ""
-         Enabled         =   True
-         Height          =   25
-         HelpTag         =   ""
-         Index           =   -2147483648
-         InitialParent   =   "grpAnimationControls"
-         Italic          =   False
-         Left            =   298
-         LockBottom      =   True
-         LockedInPosition=   False
-         LockLeft        =   True
-         LockRight       =   False
-         LockTop         =   False
-         Multiline       =   False
-         Scope           =   0
-         Selectable      =   False
-         TabIndex        =   6
-         TabPanelIndex   =   0
-         Text            =   "Thumb W"
-         TextAlign       =   0
-         TextColor       =   &c00000000
-         TextFont        =   "System"
-         TextSize        =   0.0
-         TextUnit        =   0
-         Top             =   274
-         Transparent     =   True
-         Underline       =   False
-         Visible         =   True
-         Width           =   64
-      End
-      Begin TextField thumbW_Textfield
-         AcceptTabs      =   False
-         Alignment       =   2
-         AutoDeactivate  =   True
-         AutomaticallyCheckSpelling=   False
-         BackColor       =   &cFFFFFF00
-         Bold            =   False
-         Border          =   True
-         CueText         =   ""
-         DataField       =   ""
-         DataSource      =   ""
-         Enabled         =   True
-         Format          =   ""
-         Height          =   22
-         HelpTag         =   ""
-         Index           =   -2147483648
-         InitialParent   =   "grpAnimationControls"
-         Italic          =   False
-         Left            =   298
-         LimitText       =   0
-         LockBottom      =   True
-         LockedInPosition=   False
-         LockLeft        =   True
-         LockRight       =   False
-         LockTop         =   False
-         Mask            =   ""
-         Password        =   False
-         ReadOnly        =   False
-         Scope           =   0
-         TabIndex        =   7
-         TabPanelIndex   =   0
-         TabStop         =   True
-         Text            =   "200"
-         TextColor       =   &c00000000
-         TextFont        =   "System"
-         TextSize        =   11.0
-         TextUnit        =   0
-         Top             =   301
-         Underline       =   False
-         UseFocusRing    =   False
-         Visible         =   True
-         Width           =   64
-      End
-      Begin TextField thumbH_Textfield
-         AcceptTabs      =   False
-         Alignment       =   2
-         AutoDeactivate  =   True
-         AutomaticallyCheckSpelling=   False
-         BackColor       =   &cFFFFFF00
-         Bold            =   False
-         Border          =   True
-         CueText         =   ""
-         DataField       =   ""
-         DataSource      =   ""
-         Enabled         =   True
-         Format          =   ""
-         Height          =   22
-         HelpTag         =   ""
-         Index           =   -2147483648
-         InitialParent   =   "grpAnimationControls"
-         Italic          =   False
-         Left            =   369
-         LimitText       =   0
-         LockBottom      =   True
-         LockedInPosition=   False
-         LockLeft        =   True
-         LockRight       =   False
-         LockTop         =   False
-         Mask            =   ""
-         Password        =   False
-         ReadOnly        =   False
-         Scope           =   0
-         TabIndex        =   8
-         TabPanelIndex   =   0
-         TabStop         =   True
-         Text            =   "200"
-         TextColor       =   &c00000000
-         TextFont        =   "System"
-         TextSize        =   11.0
-         TextUnit        =   0
-         Top             =   301
-         Underline       =   False
-         UseFocusRing    =   False
-         Visible         =   True
-         Width           =   64
-      End
-      Begin Label Label8
-         AutoDeactivate  =   True
-         Bold            =   False
-         DataField       =   ""
-         DataSource      =   ""
-         Enabled         =   True
-         Height          =   20
-         HelpTag         =   ""
-         Index           =   -2147483648
-         InitialParent   =   "grpAnimationControls"
-         Italic          =   False
-         Left            =   369
-         LockBottom      =   True
-         LockedInPosition=   False
-         LockLeft        =   True
-         LockRight       =   False
-         LockTop         =   False
-         Multiline       =   False
-         Scope           =   0
-         Selectable      =   False
-         TabIndex        =   9
-         TabPanelIndex   =   0
-         Text            =   "Thumb H"
-         TextAlign       =   0
-         TextColor       =   &c00000000
-         TextFont        =   "System"
-         TextSize        =   0.0
-         TextUnit        =   0
-         Top             =   276
-         Transparent     =   True
-         Underline       =   False
-         Visible         =   True
-         Width           =   73
-      End
-      Begin PushButton ClearButton
-         AutoDeactivate  =   True
-         Bold            =   False
-         ButtonStyle     =   "0"
-         Cancel          =   False
-         Caption         =   "Clear"
-         Default         =   False
-         Enabled         =   True
-         Height          =   20
-         HelpTag         =   ""
-         Index           =   -2147483648
-         InitialParent   =   "grpAnimationControls"
-         Italic          =   False
-         Left            =   530
-         LockBottom      =   True
-         LockedInPosition=   False
-         LockLeft        =   True
-         LockRight       =   False
-         LockTop         =   False
-         Scope           =   0
-         TabIndex        =   10
-         TabPanelIndex   =   0
-         TabStop         =   True
-         TextFont        =   "System"
-         TextSize        =   0.0
-         TextUnit        =   0
-         Top             =   300
-         Underline       =   False
-         Visible         =   True
-         Width           =   62
       End
    End
    Begin PushButton RightButton
@@ -563,7 +378,7 @@ Begin Window winMain
       TextFont        =   "System"
       TextSize        =   0.0
       TextUnit        =   0
-      Top             =   223
+      Top             =   249
       Underline       =   False
       Visible         =   True
       Width           =   45
@@ -594,7 +409,7 @@ Begin Window winMain
       TextFont        =   "System"
       TextSize        =   0.0
       TextUnit        =   0
-      Top             =   223
+      Top             =   249
       Underline       =   False
       Visible         =   True
       Width           =   45
@@ -603,7 +418,7 @@ Begin Window winMain
       AcceptFocus     =   True
       AutoDeactivate  =   True
       Enabled         =   True
-      Height          =   15
+      Height          =   18
       HelpTag         =   ""
       Index           =   -2147483648
       InitialParent   =   ""
@@ -622,10 +437,288 @@ Begin Window winMain
       TabIndex        =   20
       TabPanelIndex   =   0
       TabStop         =   True
-      Top             =   226
+      Top             =   249
       Value           =   0
       Visible         =   True
-      Width           =   451
+      Width           =   374
+   End
+   Begin GroupBox grpThumbSizingControls
+      AutoDeactivate  =   True
+      Bold            =   False
+      Caption         =   ""
+      Enabled         =   True
+      Height          =   71
+      HelpTag         =   ""
+      Index           =   -2147483648
+      InitialParent   =   ""
+      Italic          =   False
+      Left            =   411
+      LockBottom      =   True
+      LockedInPosition=   False
+      LockLeft        =   True
+      LockRight       =   False
+      LockTop         =   False
+      Scope           =   0
+      TabIndex        =   26
+      TabPanelIndex   =   0
+      TabStop         =   True
+      TextFont        =   "System"
+      TextSize        =   0.0
+      TextUnit        =   0
+      Top             =   292
+      Underline       =   False
+      Visible         =   True
+      Width           =   124
+      Begin Label lblThumbPerc
+         AutoDeactivate  =   True
+         Bold            =   False
+         DataField       =   ""
+         DataSource      =   ""
+         Enabled         =   True
+         Height          =   25
+         HelpTag         =   ""
+         Index           =   -2147483648
+         InitialParent   =   "grpThumbSizingControls"
+         Italic          =   False
+         Left            =   420
+         LockBottom      =   True
+         LockedInPosition=   False
+         LockLeft        =   True
+         LockRight       =   False
+         LockTop         =   False
+         Multiline       =   False
+         Scope           =   0
+         Selectable      =   False
+         TabIndex        =   6
+         TabPanelIndex   =   0
+         Text            =   "Thumbnail Size %"
+         TextAlign       =   0
+         TextColor       =   &c00000000
+         TextFont        =   "System"
+         TextSize        =   0.0
+         TextUnit        =   0
+         Top             =   292
+         Transparent     =   True
+         Underline       =   False
+         Visible         =   True
+         Width           =   119
+      End
+      Begin PopupMenu thumbSizePerc_PopupMenu
+         AutoDeactivate  =   True
+         Bold            =   False
+         DataField       =   ""
+         DataSource      =   ""
+         Enabled         =   True
+         Height          =   20
+         HelpTag         =   ""
+         Index           =   -2147483648
+         InitialParent   =   "grpThumbSizingControls"
+         InitialValue    =   ""
+         Italic          =   False
+         Left            =   420
+         ListIndex       =   0
+         LockBottom      =   False
+         LockedInPosition=   False
+         LockLeft        =   True
+         LockRight       =   False
+         LockTop         =   True
+         Scope           =   0
+         TabIndex        =   7
+         TabPanelIndex   =   0
+         TabStop         =   True
+         TextFont        =   "System"
+         TextSize        =   0.0
+         TextUnit        =   0
+         Top             =   328
+         Underline       =   False
+         Visible         =   True
+         Width           =   106
+      End
+   End
+   Begin TextField thumbH_Textfield
+      AcceptTabs      =   False
+      Alignment       =   2
+      AutoDeactivate  =   True
+      AutomaticallyCheckSpelling=   False
+      BackColor       =   &cFFFFFF00
+      Bold            =   False
+      Border          =   True
+      CueText         =   ""
+      DataField       =   ""
+      DataSource      =   ""
+      Enabled         =   True
+      Format          =   ""
+      Height          =   22
+      HelpTag         =   ""
+      Index           =   -2147483648
+      InitialParent   =   ""
+      Italic          =   False
+      Left            =   -102
+      LimitText       =   0
+      LockBottom      =   True
+      LockedInPosition=   False
+      LockLeft        =   True
+      LockRight       =   False
+      LockTop         =   False
+      Mask            =   ""
+      Password        =   False
+      ReadOnly        =   False
+      Scope           =   0
+      TabIndex        =   27
+      TabPanelIndex   =   0
+      TabStop         =   True
+      Text            =   "200"
+      TextColor       =   &c00000000
+      TextFont        =   "System"
+      TextSize        =   11.0
+      TextUnit        =   0
+      Top             =   60
+      Underline       =   False
+      UseFocusRing    =   False
+      Visible         =   True
+      Width           =   64
+   End
+   Begin Label Label8
+      AutoDeactivate  =   True
+      Bold            =   False
+      DataField       =   ""
+      DataSource      =   ""
+      Enabled         =   True
+      Height          =   20
+      HelpTag         =   ""
+      Index           =   -2147483648
+      InitialParent   =   ""
+      Italic          =   False
+      Left            =   -102
+      LockBottom      =   True
+      LockedInPosition=   False
+      LockLeft        =   True
+      LockRight       =   False
+      LockTop         =   False
+      Multiline       =   False
+      Scope           =   0
+      Selectable      =   False
+      TabIndex        =   28
+      TabPanelIndex   =   0
+      Text            =   "Thumb H"
+      TextAlign       =   0
+      TextColor       =   &c00000000
+      TextFont        =   "System"
+      TextSize        =   0.0
+      TextUnit        =   0
+      Top             =   35
+      Transparent     =   True
+      Underline       =   False
+      Visible         =   True
+      Width           =   73
+   End
+   Begin Label lblThumbW
+      AutoDeactivate  =   True
+      Bold            =   False
+      DataField       =   ""
+      DataSource      =   ""
+      Enabled         =   True
+      Height          =   25
+      HelpTag         =   ""
+      Index           =   -2147483648
+      InitialParent   =   ""
+      Italic          =   False
+      Left            =   -173
+      LockBottom      =   True
+      LockedInPosition=   False
+      LockLeft        =   True
+      LockRight       =   False
+      LockTop         =   False
+      Multiline       =   False
+      Scope           =   0
+      Selectable      =   False
+      TabIndex        =   29
+      TabPanelIndex   =   0
+      Text            =   "Thumb W"
+      TextAlign       =   0
+      TextColor       =   &c00000000
+      TextFont        =   "System"
+      TextSize        =   0.0
+      TextUnit        =   0
+      Top             =   33
+      Transparent     =   True
+      Underline       =   False
+      Visible         =   True
+      Width           =   64
+   End
+   Begin TextField thumbW_Textfield
+      AcceptTabs      =   False
+      Alignment       =   2
+      AutoDeactivate  =   True
+      AutomaticallyCheckSpelling=   False
+      BackColor       =   &cFFFFFF00
+      Bold            =   False
+      Border          =   True
+      CueText         =   ""
+      DataField       =   ""
+      DataSource      =   ""
+      Enabled         =   True
+      Format          =   ""
+      Height          =   22
+      HelpTag         =   ""
+      Index           =   -2147483648
+      InitialParent   =   ""
+      Italic          =   False
+      Left            =   -173
+      LimitText       =   0
+      LockBottom      =   True
+      LockedInPosition=   False
+      LockLeft        =   True
+      LockRight       =   False
+      LockTop         =   False
+      Mask            =   ""
+      Password        =   False
+      ReadOnly        =   False
+      Scope           =   0
+      TabIndex        =   30
+      TabPanelIndex   =   0
+      TabStop         =   True
+      Text            =   "200"
+      TextColor       =   &c00000000
+      TextFont        =   "System"
+      TextSize        =   11.0
+      TextUnit        =   0
+      Top             =   60
+      Underline       =   False
+      UseFocusRing    =   False
+      Visible         =   True
+      Width           =   64
+   End
+   Begin PushButton ClearButton
+      AutoDeactivate  =   True
+      Bold            =   False
+      ButtonStyle     =   "0"
+      Cancel          =   False
+      Caption         =   "Clear"
+      Default         =   False
+      Enabled         =   True
+      Height          =   20
+      HelpTag         =   ""
+      Index           =   -2147483648
+      InitialParent   =   ""
+      Italic          =   False
+      Left            =   487
+      LockBottom      =   True
+      LockedInPosition=   False
+      LockLeft        =   False
+      LockRight       =   True
+      LockTop         =   False
+      Scope           =   0
+      TabIndex        =   32
+      TabPanelIndex   =   0
+      TabStop         =   True
+      TextFont        =   "System"
+      TextSize        =   0.0
+      TextUnit        =   0
+      Top             =   215
+      Underline       =   False
+      Visible         =   True
+      Width           =   50
    End
 End
 #tag EndWindow
@@ -642,7 +735,7 @@ End
 	#tag Method, Flags = &h0
 		Function calculateScrollW() As Integer
 		  // CALCULATE SCROLL BAR MAXIMUM
-		  Dim thisMaximumW as Integer = (cvsScroller.pictureArray.Ubound +1) * (cvsScroller.thumbW)
+		  Dim thisMaximumW as Integer = (cvsScroller.pictureArray.Ubound +1) * (cvsScroller.thisScaledW)
 		  Return thisMaximumW
 		End Function
 	#tag EndMethod
@@ -685,23 +778,19 @@ End
 		    // DRAW PICTURES ON CANVAS
 		    Dim thisLeftPOS, thisTopPOS as Integer
 		    Dim thisImage as Picture = Me.pictureArray(i).pictureImage
+		    Me.thisScaledW  = thisImage.Width * me.thumbPercFactor
+		    Me.thisScaledH = thisImage.Height * me.thumbPercFactor
 		    If i <> 0 Then
-		      Me.pictureArray(i).left = Me.pictureArray(i-1).left + me.thumbW + 2
+		      Me.pictureArray(i).left = (Me.pictureArray(i-1).left + Me.thisScaledW + 2)
 		      thisLeftPOS = Me.pictureArray(i).left
-		      Dim thisH as Integer =  (Me.Height/2) 
-		      Dim thisThumbH as Integer = me.thumbH/2 
-		      Me.pictureArray(i).top  = (thisH) - (thisThumbH)
-		      thisTopPOS = Me.pictureArray(i).top 
+		      thisTopPOS = 5 
 		      
 		    Elseif i = 0 Then
-		      thisLeftPOS = Me.pictureArray(i).left
-		      Dim thisH as Integer =  (Me.Height/2)
-		      Dim thisThumbH as Integer = me.thumbH/2 
-		      Me.pictureArray(i).top  = (thisH) - (thisThumbH)
-		      thisTopPOS = Me.pictureArray(i).top 
+		      thisLeftPOS = (Me.pictureArray(i).left)
+		      thisTopPOS = 5
 		    End If
 		    
-		    g.DrawPicture(thisImage, thisLeftPOS, thisTopPOS, me.thumbW, me.thumbH, 0, 0, thisImage.Width, thisImage.Height)
+		    g.DrawPicture(thisImage, thisLeftPOS, thisTopPOS, Me.thisScaledW, Me.thisScaledH, 0, 0, thisImage.Width, thisImage.Height)
 		    
 		  Next i
 		  
@@ -798,49 +887,6 @@ End
 		End Sub
 	#tag EndEvent
 #tag EndEvents
-#tag Events thumbW_Textfield
-	#tag Event
-		Sub TextChange()
-		  // SET THE PIXEL STEP VALUE
-		  Dim thisStrVal as String = Trim(Me.Text)
-		  Dim thisVal as Double = CDbl(thisStrVal)
-		  cvsScroller.thumbW = thisVal
-		  cvsScroller.Invalidate(False)
-		End Sub
-	#tag EndEvent
-	#tag Event
-		Sub Open()
-		  // DEFAULT
-		  cvsScroller.thumbW = 200
-		End Sub
-	#tag EndEvent
-#tag EndEvents
-#tag Events thumbH_Textfield
-	#tag Event
-		Sub TextChange()
-		  // SET THE PIXEL STEP VALUE
-		  Dim thisStrVal as String = Trim(Me.Text)
-		  Dim thisVal as Double = CDbl(thisStrVal)
-		  cvsScroller.thumbH = thisVal
-		  cvsScroller.Invalidate(False)
-		End Sub
-	#tag EndEvent
-	#tag Event
-		Sub Open()
-		  // DEFAULT
-		  cvsScroller.thumbH = 200
-		End Sub
-	#tag EndEvent
-#tag EndEvents
-#tag Events ClearButton
-	#tag Event
-		Sub Action()
-		  cvsScroller.Clear
-		  AnimateButton.Enabled = False
-		  ScrollBar1.Enabled = False
-		End Sub
-	#tag EndEvent
-#tag EndEvents
 #tag Events RightButton
 	#tag Event
 		Sub Action()
@@ -871,6 +917,71 @@ End
 		Sub Open()
 		  // CALCULATE SCROLL BAR MAXIMUM
 		  Me.Maximum = calculateScrollW()
+		End Sub
+	#tag EndEvent
+#tag EndEvents
+#tag Events thumbSizePerc_PopupMenu
+	#tag Event
+		Sub Change()
+		  Dim thisValRawStr as String = Trim(me.Text)
+		  Dim thisValStrLen as Integer = thisValRawStr.Len
+		  Dim startTrim as Integer = thisValStrLen - 1
+		  Dim thisValStr as String = thisValRawStr.left(startTrim)
+		  Dim thisVal as Double = CDbl(thisValStr)/100
+		  cvsScroller.thumbPercFactor = thisVal
+		   cvsScroller.Invalidate(False)
+		End Sub
+	#tag EndEvent
+	#tag Event
+		Sub Open()
+		  For i as Integer = 100 downto 5 step 5
+		    Me.AddRow(Str(i)+"%")
+		  Next i
+		  
+		  Me.ListIndex = 10
+		End Sub
+	#tag EndEvent
+#tag EndEvents
+#tag Events thumbH_Textfield
+	#tag Event
+		Sub TextChange()
+		  // SET THE PIXEL STEP VALUE
+		  Dim thisStrVal as String = Trim(Me.Text)
+		  Dim thisVal as Double = CDbl(thisStrVal)
+		  cvsScroller.thisScaledH = thisVal
+		  cvsScroller.Invalidate(False)
+		End Sub
+	#tag EndEvent
+	#tag Event
+		Sub Open()
+		  // DEFAULT
+		  cvsScroller.thisScaledH = 200
+		End Sub
+	#tag EndEvent
+#tag EndEvents
+#tag Events thumbW_Textfield
+	#tag Event
+		Sub TextChange()
+		  // SET THE PIXEL STEP VALUE
+		  Dim thisStrVal as String = Trim(Me.Text)
+		  Dim thisVal as Double = CDbl(thisStrVal)
+		  cvsScroller.thisScaledW = thisVal
+		  cvsScroller.Invalidate(False)
+		End Sub
+	#tag EndEvent
+	#tag Event
+		Sub Open()
+		  // DEFAULT
+		  cvsScroller.thisScaledW = 200
+		End Sub
+	#tag EndEvent
+#tag EndEvents
+#tag Events ClearButton
+	#tag Event
+		Sub Action()
+		  cvsScroller.Clear
+		  AnimateButton.Enabled = False
+		  ScrollBar1.Enabled = False
 		End Sub
 	#tag EndEvent
 #tag EndEvents

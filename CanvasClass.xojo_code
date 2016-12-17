@@ -35,10 +35,6 @@ Inherits Canvas
 		  Me.AcceptFileDrop("image/pict")
 		  Me.AcceptFileDrop("image/tiff")
 		  
-		  // SET THUMB NAIL SIZE
-		  thumbW = 200
-		  thumbH = 200
-		  
 		  // SET CANVAS PROPERTIES FOR WIN/MAC
 		  #If TargetWin32 Then
 		    Me.DoubleBuffer = True
@@ -97,7 +93,7 @@ Inherits Canvas
 		    // LEFT TO RIGHT
 		    If pictureArray.Ubound <> -1 Then
 		      If pictureArray(0).left > Me.Width Then
-		        Dim lastImageLeft as Integer = (pictureArray.Ubound + 1) * thumbW
+		        Dim lastImageLeft as Integer = (pictureArray.Ubound + 1) * thisScaledW
 		        pictureArray(0).left = -lastImageLeft 
 		      End If
 		    End If
@@ -109,7 +105,7 @@ Inherits Canvas
 		  Case 1
 		    // RIGHT TO LEFT
 		    If pictureArray.Ubound <> -1 Then
-		      Dim thisMarker as Integer = pictureArray(pictureArray.Ubound).left + thumbW
+		      Dim thisMarker as Integer = pictureArray(pictureArray.Ubound).left + thisScaledW
 		      If thisMarker < 0 Then
 		        // Reset images to begin scrolling again
 		        pictureArray(0).left = me.width
@@ -156,11 +152,15 @@ Inherits Canvas
 	#tag EndProperty
 
 	#tag Property, Flags = &h0
-		thumbH As Integer
+		thisScaledH As Integer
 	#tag EndProperty
 
 	#tag Property, Flags = &h0
-		thumbW As Integer
+		thisScaledW As Integer
+	#tag EndProperty
+
+	#tag Property, Flags = &h0
+		thumbPercFactor As Double
 	#tag EndProperty
 
 
@@ -304,14 +304,19 @@ Inherits Canvas
 			Type="Boolean"
 		#tag EndViewProperty
 		#tag ViewProperty
-			Name="thumbH"
+			Name="thisScaledH"
 			Group="Behavior"
 			Type="Integer"
 		#tag EndViewProperty
 		#tag ViewProperty
-			Name="thumbW"
+			Name="thisScaledW"
 			Group="Behavior"
 			Type="Integer"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="thumbPercFactor"
+			Group="Behavior"
+			Type="Double"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Top"
