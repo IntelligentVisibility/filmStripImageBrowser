@@ -165,6 +165,10 @@ Inherits Canvas
 	#tag EndProperty
 
 	#tag Property, Flags = &h0
+		showImageNames As Boolean
+	#tag EndProperty
+
+	#tag Property, Flags = &h0
 		thisScaledH As Integer
 	#tag EndProperty
 

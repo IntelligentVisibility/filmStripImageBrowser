@@ -9,7 +9,7 @@ Begin Window winMain
    FullScreen      =   False
    FullScreenButton=   False
    HasBackColor    =   False
-   Height          =   376
+   Height          =   350
    ImplicitInstance=   True
    LiveResize      =   True
    MacProcID       =   0
@@ -25,7 +25,7 @@ Begin Window winMain
    Resizeable      =   True
    Title           =   "Filmstrip Image Browser"
    Visible         =   True
-   Width           =   664
+   Width           =   770
    Begin CanvasClass cvsScroller
       AcceptFocus     =   False
       AcceptTabs      =   False
@@ -34,7 +34,7 @@ Begin Window winMain
       DoubleBuffer    =   False
       Enabled         =   True
       EraseBackground =   True
-      Height          =   194
+      Height          =   190
       HelpTag         =   ""
       imageSpacer     =   0
       Index           =   -2147483648
@@ -55,7 +55,7 @@ Begin Window winMain
       Transparent     =   True
       UseFocusRing    =   True
       Visible         =   True
-      Width           =   664
+      Width           =   770
    End
    Begin Timer tmrAnimationHandler
       Index           =   -2147483648
@@ -82,7 +82,7 @@ Begin Window winMain
       TabIndex        =   9
       TabPanelIndex   =   0
       TabStop         =   True
-      Top             =   238
+      Top             =   212
       Visible         =   True
       Width           =   21
    End
@@ -109,7 +109,7 @@ Begin Window winMain
       TextFont        =   "System"
       TextSize        =   0.0
       TextUnit        =   0
-      Top             =   292
+      Top             =   266
       Underline       =   False
       Visible         =   True
       Width           =   379
@@ -139,7 +139,7 @@ Begin Window winMain
          TextFont        =   "System"
          TextSize        =   0.0
          TextUnit        =   0
-         Top             =   327
+         Top             =   301
          Underline       =   False
          Visible         =   True
          Width           =   80
@@ -172,7 +172,7 @@ Begin Window winMain
          TextFont        =   "System"
          TextSize        =   0.0
          TextUnit        =   0
-         Top             =   302
+         Top             =   276
          Transparent     =   True
          Underline       =   False
          Visible         =   True
@@ -215,7 +215,7 @@ Begin Window winMain
          TextFont        =   "System"
          TextSize        =   11.0
          TextUnit        =   0
-         Top             =   327
+         Top             =   301
          Underline       =   False
          UseFocusRing    =   False
          Visible         =   True
@@ -258,7 +258,7 @@ Begin Window winMain
          TextFont        =   "System"
          TextSize        =   11.0
          TextUnit        =   0
-         Top             =   327
+         Top             =   301
          Underline       =   False
          UseFocusRing    =   False
          Visible         =   True
@@ -292,7 +292,7 @@ Begin Window winMain
          TextFont        =   "System"
          TextSize        =   0.0
          TextUnit        =   0
-         Top             =   302
+         Top             =   276
          Transparent     =   True
          Underline       =   False
          Visible         =   True
@@ -314,7 +314,7 @@ Begin Window winMain
          Segments        =   "L to R\n\nTrue\rR to L\n\nFalse"
          SelectionType   =   0
          TabPanelIndex   =   0
-         Top             =   327
+         Top             =   301
          Visible         =   True
          Width           =   104
       End
@@ -346,7 +346,7 @@ Begin Window winMain
          TextFont        =   "System"
          TextSize        =   0.0
          TextUnit        =   0
-         Top             =   302
+         Top             =   276
          Transparent     =   True
          Underline       =   False
          Visible         =   True
@@ -379,7 +379,7 @@ Begin Window winMain
       TextFont        =   "System"
       TextSize        =   0.0
       TextUnit        =   0
-      Top             =   249
+      Top             =   223
       Underline       =   False
       Visible         =   True
       Width           =   45
@@ -410,7 +410,7 @@ Begin Window winMain
       TextFont        =   "System"
       TextSize        =   0.0
       TextUnit        =   0
-      Top             =   249
+      Top             =   223
       Underline       =   False
       Visible         =   True
       Width           =   45
@@ -438,10 +438,10 @@ Begin Window winMain
       TabIndex        =   20
       TabPanelIndex   =   0
       TabStop         =   True
-      Top             =   249
+      Top             =   223
       Value           =   0
       Visible         =   True
-      Width           =   486
+      Width           =   502
    End
    Begin GroupBox grpThumbSizingControls
       AutoDeactivate  =   True
@@ -466,7 +466,7 @@ Begin Window winMain
       TextFont        =   "System"
       TextSize        =   0.0
       TextUnit        =   0
-      Top             =   291
+      Top             =   265
       Underline       =   False
       Visible         =   True
       Width           =   124
@@ -498,7 +498,7 @@ Begin Window winMain
          TextFont        =   "System"
          TextSize        =   0.0
          TextUnit        =   0
-         Top             =   299
+         Top             =   273
          Transparent     =   True
          Underline       =   False
          Visible         =   True
@@ -530,7 +530,7 @@ Begin Window winMain
          TextFont        =   "System"
          TextSize        =   0.0
          TextUnit        =   0
-         Top             =   327
+         Top             =   301
          Underline       =   False
          Visible         =   True
          Width           =   106
@@ -573,7 +573,7 @@ Begin Window winMain
       TextFont        =   "System"
       TextSize        =   11.0
       TextUnit        =   0
-      Top             =   60
+      Top             =   34
       Underline       =   False
       UseFocusRing    =   False
       Visible         =   True
@@ -607,7 +607,7 @@ Begin Window winMain
       TextFont        =   "System"
       TextSize        =   0.0
       TextUnit        =   0
-      Top             =   35
+      Top             =   9
       Transparent     =   True
       Underline       =   False
       Visible         =   True
@@ -641,7 +641,7 @@ Begin Window winMain
       TextFont        =   "System"
       TextSize        =   0.0
       TextUnit        =   0
-      Top             =   33
+      Top             =   7
       Transparent     =   True
       Underline       =   False
       Visible         =   True
@@ -684,7 +684,7 @@ Begin Window winMain
       TextFont        =   "System"
       TextSize        =   11.0
       TextUnit        =   0
-      Top             =   60
+      Top             =   34
       Underline       =   False
       UseFocusRing    =   False
       Visible         =   True
@@ -703,7 +703,7 @@ Begin Window winMain
       Index           =   -2147483648
       InitialParent   =   ""
       Italic          =   False
-      Left            =   598
+      Left            =   700
       LockBottom      =   True
       LockedInPosition=   False
       LockLeft        =   False
@@ -716,7 +716,7 @@ Begin Window winMain
       TextFont        =   "System"
       TextSize        =   0.0
       TextUnit        =   0
-      Top             =   221
+      Top             =   223
       Underline       =   False
       Visible         =   True
       Width           =   50
@@ -744,10 +744,10 @@ Begin Window winMain
       TextFont        =   "System"
       TextSize        =   0.0
       TextUnit        =   0
-      Top             =   291
+      Top             =   265
       Underline       =   False
       Visible         =   True
-      Width           =   100
+      Width           =   203
       Begin Label imageSpacer_Label
          AutoDeactivate  =   True
          Bold            =   False
@@ -776,11 +776,11 @@ Begin Window winMain
          TextFont        =   "System"
          TextSize        =   0.0
          TextUnit        =   0
-         Top             =   300
+         Top             =   274
          Transparent     =   True
          Underline       =   False
          Visible         =   True
-         Width           =   118
+         Width           =   88
       End
       Begin TextField imageSpacer_Textfield
          AcceptTabs      =   False
@@ -819,7 +819,7 @@ Begin Window winMain
          TextFont        =   "System"
          TextSize        =   11.0
          TextUnit        =   0
-         Top             =   326
+         Top             =   300
          Underline       =   False
          UseFocusRing    =   False
          Visible         =   True
@@ -853,11 +853,77 @@ Begin Window winMain
          TextFont        =   "System"
          TextSize        =   0.0
          TextUnit        =   0
-         Top             =   325
+         Top             =   299
          Transparent     =   True
          Underline       =   False
          Visible         =   True
-         Width           =   35
+         Width           =   31
+      End
+      Begin Label showNames_Label
+         AutoDeactivate  =   True
+         Bold            =   False
+         DataField       =   ""
+         DataSource      =   ""
+         Enabled         =   True
+         Height          =   20
+         HelpTag         =   ""
+         Index           =   -2147483648
+         InitialParent   =   "grpThumbSizingControls1"
+         Italic          =   False
+         Left            =   659
+         LockBottom      =   True
+         LockedInPosition=   False
+         LockLeft        =   True
+         LockRight       =   False
+         LockTop         =   False
+         Multiline       =   False
+         Scope           =   0
+         Selectable      =   False
+         TabIndex        =   3
+         TabPanelIndex   =   0
+         Text            =   "Show Names"
+         TextAlign       =   0
+         TextColor       =   &c00000000
+         TextFont        =   "System"
+         TextSize        =   0.0
+         TextUnit        =   0
+         Top             =   275
+         Transparent     =   True
+         Underline       =   False
+         Visible         =   True
+         Width           =   88
+      End
+      Begin CheckBox showNames_CheckBox
+         AutoDeactivate  =   True
+         Bold            =   False
+         Caption         =   ""
+         DataField       =   ""
+         DataSource      =   ""
+         Enabled         =   True
+         Height          =   20
+         HelpTag         =   ""
+         Index           =   -2147483648
+         InitialParent   =   "grpThumbSizingControls1"
+         Italic          =   False
+         Left            =   690
+         LockBottom      =   False
+         LockedInPosition=   False
+         LockLeft        =   True
+         LockRight       =   False
+         LockTop         =   True
+         Scope           =   0
+         State           =   1
+         TabIndex        =   4
+         TabPanelIndex   =   0
+         TabStop         =   True
+         TextFont        =   "System"
+         TextSize        =   0.0
+         TextUnit        =   0
+         Top             =   299
+         Underline       =   False
+         Value           =   True
+         Visible         =   True
+         Width           =   38
       End
    End
 End
@@ -962,9 +1028,11 @@ End
 		    g.DrawPicture(thisImage, thisLeftPOS, thisTopPOS, Me.thisScaledW, Me.thisScaledH, 0, 0, thisImage.Width, thisImage.Height)
 		    
 		    // DRAW IMAGE NAME
-		    g.ForeColor = &c000000
-		    dim test as integer = g.TextSize
-		    g.DrawString(thisImageName, Me.pictureArray(i).imageNameXpos, Me.pictureArray(i).imageNameYpos, wrapWidth)
+		    if Me.showImageNames = True Then
+		      g.ForeColor = &c000000
+		      dim test as integer = g.TextSize
+		      g.DrawString(thisImageName, Me.pictureArray(i).imageNameXpos, Me.pictureArray(i).imageNameYpos, wrapWidth)
+		    end if
 		    
 		  Next i
 		  
@@ -1193,6 +1261,19 @@ End
 		  Dim thisStartVal as Integer = 25
 		  Me.Text = Str(thisStartVal)
 		  cvsScroller.imageSpacer = thisStartVal
+		End Sub
+	#tag EndEvent
+#tag EndEvents
+#tag Events showNames_CheckBox
+	#tag Event
+		Sub Action()
+		  cvsScroller.showImageNames = Me.Value
+		  cvsScroller.Invalidate(False)
+		End Sub
+	#tag EndEvent
+	#tag Event
+		Sub Open()
+		  Me.Value = True
 		End Sub
 	#tag EndEvent
 #tag EndEvents
