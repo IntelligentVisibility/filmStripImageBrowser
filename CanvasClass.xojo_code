@@ -77,11 +77,7 @@ Inherits Canvas
 		  thisPictureClassEntry.fFolderItem = fItem
 		  thisPictureClassEntry.width = thisPictureClassEntry.pictureImage.Width
 		  thisPictureClassEntry.Height = thisPictureClassEntry.pictureImage.Height
-		  thisPictureClassEntry.imageRect = New REALbasic.Rect
-		  thisPictureClassEntry.imageRect.width = thisPictureClassEntry.pictureImage.Width
-		  thisPictureClassEntry.imageRect.Height = thisPictureClassEntry.pictureImage.Height
-		  // INSTANTIATE RECT
-		  
+		  thisPictureClassEntry.fFolderItem.Name = thisPictureClassEntry.fFolderItem.Name
 		  pictureArray.Append thisPictureClassEntry
 		  
 		  
