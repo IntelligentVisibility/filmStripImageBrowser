@@ -9,6 +9,18 @@ Protected Class PictureClass
 	#tag EndProperty
 
 	#tag Property, Flags = &h0
+		imageName As string
+	#tag EndProperty
+
+	#tag Property, Flags = &h0
+		imageNameXpos As Integer
+	#tag EndProperty
+
+	#tag Property, Flags = &h0
+		imageNameYpos As Integer
+	#tag EndProperty
+
+	#tag Property, Flags = &h0
 		left As Integer
 	#tag EndProperty
 
