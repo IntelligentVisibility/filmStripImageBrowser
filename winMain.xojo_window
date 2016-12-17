@@ -115,7 +115,7 @@ Begin Window winMain
       Underline       =   False
       Visible         =   True
       Width           =   379
-      Begin PushButton AnimateButton
+      Begin PushButton btnAnimate
          AutoDeactivate  =   True
          Bold            =   False
          ButtonStyle     =   "0"
@@ -180,7 +180,7 @@ Begin Window winMain
          Visible         =   True
          Width           =   48
       End
-      Begin TextField animateSpeed_Textfield
+      Begin TextField tfAnimateSpeed
          AcceptTabs      =   False
          Alignment       =   2
          AutoDeactivate  =   True
@@ -223,7 +223,7 @@ Begin Window winMain
          Visible         =   True
          Width           =   64
       End
-      Begin TextField animateStep_Textfield1
+      Begin TextField tfdPixelStep
          AcceptTabs      =   False
          Alignment       =   2
          AutoDeactivate  =   True
@@ -300,7 +300,7 @@ Begin Window winMain
          Visible         =   True
          Width           =   65
       End
-      BeginSegmented SegmentedControl SegmentedControl1
+      BeginSegmented SegmentedControl smcScrollDirection
          Enabled         =   True
          Height          =   24
          Index           =   -2147483648
@@ -355,7 +355,7 @@ Begin Window winMain
          Width           =   107
       End
    End
-   Begin PushButton RightButton
+   Begin PushButton btnRightNudge
       AutoDeactivate  =   True
       Bold            =   False
       ButtonStyle     =   "0"
@@ -386,7 +386,7 @@ Begin Window winMain
       Visible         =   True
       Width           =   45
    End
-   Begin PushButton LeftButton
+   Begin PushButton btnLeftNudge
       AutoDeactivate  =   True
       Bold            =   False
       ButtonStyle     =   "0"
@@ -417,7 +417,7 @@ Begin Window winMain
       Visible         =   True
       Width           =   45
    End
-   Begin ScrollBar ScrollBar1
+   Begin ScrollBar scbScrollControl
       AcceptFocus     =   True
       AutoDeactivate  =   True
       Enabled         =   True
@@ -506,7 +506,7 @@ Begin Window winMain
          Visible         =   True
          Width           =   119
       End
-      Begin PopupMenu thumbSizePerc_PopupMenu
+      Begin PopupMenu pumThumbSizePerc
          AutoDeactivate  =   True
          Bold            =   False
          DataField       =   ""
@@ -538,161 +538,7 @@ Begin Window winMain
          Width           =   106
       End
    End
-   Begin TextField thumbH_Textfield
-      AcceptTabs      =   False
-      Alignment       =   2
-      AutoDeactivate  =   True
-      AutomaticallyCheckSpelling=   False
-      BackColor       =   &cFFFFFF00
-      Bold            =   False
-      Border          =   True
-      CueText         =   ""
-      DataField       =   ""
-      DataSource      =   ""
-      Enabled         =   True
-      Format          =   ""
-      Height          =   22
-      HelpTag         =   ""
-      Index           =   -2147483648
-      InitialParent   =   ""
-      Italic          =   False
-      Left            =   -102
-      LimitText       =   0
-      LockBottom      =   True
-      LockedInPosition=   False
-      LockLeft        =   True
-      LockRight       =   False
-      LockTop         =   False
-      Mask            =   ""
-      Password        =   False
-      ReadOnly        =   False
-      Scope           =   0
-      TabIndex        =   27
-      TabPanelIndex   =   0
-      TabStop         =   True
-      Text            =   "200"
-      TextColor       =   &c00000000
-      TextFont        =   "System"
-      TextSize        =   11.0
-      TextUnit        =   0
-      Top             =   34
-      Underline       =   False
-      UseFocusRing    =   False
-      Visible         =   True
-      Width           =   64
-   End
-   Begin Label Label8
-      AutoDeactivate  =   True
-      Bold            =   False
-      DataField       =   ""
-      DataSource      =   ""
-      Enabled         =   True
-      Height          =   20
-      HelpTag         =   ""
-      Index           =   -2147483648
-      InitialParent   =   ""
-      Italic          =   False
-      Left            =   -102
-      LockBottom      =   True
-      LockedInPosition=   False
-      LockLeft        =   True
-      LockRight       =   False
-      LockTop         =   False
-      Multiline       =   False
-      Scope           =   0
-      Selectable      =   False
-      TabIndex        =   28
-      TabPanelIndex   =   0
-      Text            =   "Thumb H"
-      TextAlign       =   0
-      TextColor       =   &c00000000
-      TextFont        =   "System"
-      TextSize        =   0.0
-      TextUnit        =   0
-      Top             =   9
-      Transparent     =   True
-      Underline       =   False
-      Visible         =   True
-      Width           =   73
-   End
-   Begin Label lblThumbW
-      AutoDeactivate  =   True
-      Bold            =   False
-      DataField       =   ""
-      DataSource      =   ""
-      Enabled         =   True
-      Height          =   25
-      HelpTag         =   ""
-      Index           =   -2147483648
-      InitialParent   =   ""
-      Italic          =   False
-      Left            =   -173
-      LockBottom      =   True
-      LockedInPosition=   False
-      LockLeft        =   True
-      LockRight       =   False
-      LockTop         =   False
-      Multiline       =   False
-      Scope           =   0
-      Selectable      =   False
-      TabIndex        =   29
-      TabPanelIndex   =   0
-      Text            =   "Thumb W"
-      TextAlign       =   0
-      TextColor       =   &c00000000
-      TextFont        =   "System"
-      TextSize        =   0.0
-      TextUnit        =   0
-      Top             =   7
-      Transparent     =   True
-      Underline       =   False
-      Visible         =   True
-      Width           =   64
-   End
-   Begin TextField thumbW_Textfield
-      AcceptTabs      =   False
-      Alignment       =   2
-      AutoDeactivate  =   True
-      AutomaticallyCheckSpelling=   False
-      BackColor       =   &cFFFFFF00
-      Bold            =   False
-      Border          =   True
-      CueText         =   ""
-      DataField       =   ""
-      DataSource      =   ""
-      Enabled         =   True
-      Format          =   ""
-      Height          =   22
-      HelpTag         =   ""
-      Index           =   -2147483648
-      InitialParent   =   ""
-      Italic          =   False
-      Left            =   -173
-      LimitText       =   0
-      LockBottom      =   True
-      LockedInPosition=   False
-      LockLeft        =   True
-      LockRight       =   False
-      LockTop         =   False
-      Mask            =   ""
-      Password        =   False
-      ReadOnly        =   False
-      Scope           =   0
-      TabIndex        =   30
-      TabPanelIndex   =   0
-      TabStop         =   True
-      Text            =   "200"
-      TextColor       =   &c00000000
-      TextFont        =   "System"
-      TextSize        =   11.0
-      TextUnit        =   0
-      Top             =   34
-      Underline       =   False
-      UseFocusRing    =   False
-      Visible         =   True
-      Width           =   64
-   End
-   Begin PushButton ClearButton
+   Begin PushButton btnClear
       AutoDeactivate  =   True
       Bold            =   False
       ButtonStyle     =   "0"
@@ -723,7 +569,7 @@ Begin Window winMain
       Visible         =   True
       Width           =   50
    End
-   Begin GroupBox grpThumbSizingControls1
+   Begin GroupBox imageOptions_GroupBox
       AutoDeactivate  =   True
       Bold            =   False
       Caption         =   ""
@@ -750,7 +596,7 @@ Begin Window winMain
       Underline       =   False
       Visible         =   True
       Width           =   203
-      Begin Label imageSpacer_Label
+      Begin Label lblImageSpacer
          AutoDeactivate  =   True
          Bold            =   False
          DataField       =   ""
@@ -759,7 +605,7 @@ Begin Window winMain
          Height          =   20
          HelpTag         =   ""
          Index           =   -2147483648
-         InitialParent   =   "grpThumbSizingControls1"
+         InitialParent   =   "imageOptions_GroupBox"
          Italic          =   False
          Left            =   554
          LockBottom      =   True
@@ -784,7 +630,7 @@ Begin Window winMain
          Visible         =   True
          Width           =   88
       End
-      Begin TextField imageSpacer_Textfield
+      Begin TextField tfdImageSpacer
          AcceptTabs      =   False
          Alignment       =   2
          AutoDeactivate  =   True
@@ -800,7 +646,7 @@ Begin Window winMain
          Height          =   22
          HelpTag         =   ""
          Index           =   -2147483648
-         InitialParent   =   "grpThumbSizingControls1"
+         InitialParent   =   "imageOptions_GroupBox"
          Italic          =   False
          Left            =   556
          LimitText       =   0
@@ -827,7 +673,7 @@ Begin Window winMain
          Visible         =   True
          Width           =   55
       End
-      Begin Label pixel_Label
+      Begin Label lblPixel
          AutoDeactivate  =   True
          Bold            =   False
          DataField       =   ""
@@ -836,7 +682,7 @@ Begin Window winMain
          Height          =   20
          HelpTag         =   ""
          Index           =   -2147483648
-         InitialParent   =   "grpThumbSizingControls1"
+         InitialParent   =   "imageOptions_GroupBox"
          Italic          =   False
          Left            =   616
          LockBottom      =   True
@@ -861,7 +707,7 @@ Begin Window winMain
          Visible         =   True
          Width           =   31
       End
-      Begin Label showNames_Label
+      Begin Label lblShowNames
          AutoDeactivate  =   True
          Bold            =   False
          DataField       =   ""
@@ -870,7 +716,7 @@ Begin Window winMain
          Height          =   20
          HelpTag         =   ""
          Index           =   -2147483648
-         InitialParent   =   "grpThumbSizingControls1"
+         InitialParent   =   "imageOptions_GroupBox"
          Italic          =   False
          Left            =   659
          LockBottom      =   True
@@ -895,7 +741,7 @@ Begin Window winMain
          Visible         =   True
          Width           =   88
       End
-      Begin CheckBox showNames_CheckBox
+      Begin CheckBox cbxShowNames
          AutoDeactivate  =   True
          Bold            =   False
          Caption         =   ""
@@ -905,7 +751,7 @@ Begin Window winMain
          Height          =   20
          HelpTag         =   ""
          Index           =   -2147483648
-         InitialParent   =   "grpThumbSizingControls1"
+         InitialParent   =   "imageOptions_GroupBox"
          Italic          =   False
          Left            =   690
          LockBottom      =   False
@@ -1064,8 +910,8 @@ End
 	#tag EndEvent
 	#tag Event
 		Sub NewImageReady()
-		  AnimateButton.Enabled = True
-		  ScrollBar1.Maximum = calculateScrollW()
+		  btnAnimate.Enabled = True
+		  scbScrollControl.Maximum = calculateScrollW()
 		End Sub
 	#tag EndEvent
 	#tag Event
@@ -1118,26 +964,26 @@ End
 		End Sub
 	#tag EndEvent
 #tag EndEvents
-#tag Events AnimateButton
+#tag Events btnAnimate
 	#tag Event
 		Sub Action()
 		  If tmrAnimationHandler.Mode = timer.ModeOff Then
 		    tmrAnimationHandler.Period = animateSpeedMS
 		    tmrAnimationHandler.Mode = timer.ModeMultiple
 		    Me.Caption = "Stop"
-		    ScrollBar1.Enabled = False
+		    scbScrollControl.Enabled = False
 		    isAnimating = True
 		    
 		  Elseif tmrAnimationHandler.Mode = timer.ModeMultiple Then
 		    tmrAnimationHandler.Mode = timer.ModeOff
 		    Me.Caption = "Animate"
-		    ScrollBar1.Enabled = True
+		    scbScrollControl.Enabled = True
 		    isAnimating = False
 		  End If
 		End Sub
 	#tag EndEvent
 #tag EndEvents
-#tag Events animateSpeed_Textfield
+#tag Events tfAnimateSpeed
 	#tag Event
 		Sub Open()
 		  animateSpeedMS = 10
@@ -1152,7 +998,7 @@ End
 		End Sub
 	#tag EndEvent
 #tag EndEvents
-#tag Events animateStep_Textfield1
+#tag Events tfdPixelStep
 	#tag Event
 		Sub TextChange()
 		  // SET THE PIXEL STEP VALUE
@@ -1167,7 +1013,7 @@ End
 		End Sub
 	#tag EndEvent
 #tag EndEvents
-#tag Events SegmentedControl1
+#tag Events smcScrollDirection
 	#tag Event
 		Sub Action(itemIndex as integer)
 		  // CONTROLS THE ANIMATION DIRECTION
@@ -1183,7 +1029,7 @@ End
 		End Sub
 	#tag EndEvent
 #tag EndEvents
-#tag Events RightButton
+#tag Events btnRightNudge
 	#tag Event
 		Sub Action()
 		  // NUDGE ALL PICTURES FORWARD IN PIXELS
@@ -1191,7 +1037,7 @@ End
 		End Sub
 	#tag EndEvent
 #tag EndEvents
-#tag Events LeftButton
+#tag Events btnLeftNudge
 	#tag Event
 		Sub Action()
 		  // NUDGE ALL PICTURES BACK IN PIXELS
@@ -1200,7 +1046,7 @@ End
 		End Sub
 	#tag EndEvent
 #tag EndEvents
-#tag Events ScrollBar1
+#tag Events scbScrollControl
 	#tag Event
 		Sub ValueChanged()
 		  for i as integer = 0 to cvsScroller.pictureArray.Ubound
@@ -1217,7 +1063,7 @@ End
 		End Sub
 	#tag EndEvent
 #tag EndEvents
-#tag Events thumbSizePerc_PopupMenu
+#tag Events pumThumbSizePerc
 	#tag Event
 		Sub Change()
 		  Dim thisValRawStr as String = Trim(me.Text)
@@ -1239,50 +1085,16 @@ End
 		End Sub
 	#tag EndEvent
 #tag EndEvents
-#tag Events thumbH_Textfield
-	#tag Event
-		Sub TextChange()
-		  // SET THE PIXEL STEP VALUE
-		  Dim thisStrVal as String = Trim(Me.Text)
-		  Dim thisVal as Double = CDbl(thisStrVal)
-		  cvsScroller.thisScaledH = thisVal
-		  cvsScroller.Invalidate(False)
-		End Sub
-	#tag EndEvent
-	#tag Event
-		Sub Open()
-		  // DEFAULT
-		  cvsScroller.thisScaledH = 200
-		End Sub
-	#tag EndEvent
-#tag EndEvents
-#tag Events thumbW_Textfield
-	#tag Event
-		Sub TextChange()
-		  // SET THE PIXEL STEP VALUE
-		  Dim thisStrVal as String = Trim(Me.Text)
-		  Dim thisVal as Double = CDbl(thisStrVal)
-		  cvsScroller.thisScaledW = thisVal
-		  cvsScroller.Invalidate(False)
-		End Sub
-	#tag EndEvent
-	#tag Event
-		Sub Open()
-		  // DEFAULT
-		  cvsScroller.thisScaledW = 200
-		End Sub
-	#tag EndEvent
-#tag EndEvents
-#tag Events ClearButton
+#tag Events btnClear
 	#tag Event
 		Sub Action()
 		  cvsScroller.Clear
-		  AnimateButton.Enabled = False
-		  ScrollBar1.Enabled = False
+		  btnAnimate.Enabled = False
+		  scbScrollControl.Enabled = False
 		End Sub
 	#tag EndEvent
 #tag EndEvents
-#tag Events imageSpacer_Textfield
+#tag Events tfdImageSpacer
 	#tag Event
 		Sub TextChange()
 		  // SET THE PIXEL STEP VALUE
@@ -1300,7 +1112,7 @@ End
 		End Sub
 	#tag EndEvent
 #tag EndEvents
-#tag Events showNames_CheckBox
+#tag Events cbxShowNames
 	#tag Event
 		Sub Action()
 		  cvsScroller.showImageNames = Me.Value
