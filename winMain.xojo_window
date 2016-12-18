@@ -26,7 +26,7 @@ Begin Window winMain
    Title           =   "Filmstrip Image Browser"
    Visible         =   True
    Width           =   770
-   Begin CanvasClass cvsScroller
+   Begin clsCanvas cvsScroller
       AcceptFocus     =   False
       AcceptTabs      =   False
       AutoDeactivate  =   True
@@ -180,7 +180,7 @@ Begin Window winMain
          Visible         =   True
          Width           =   48
       End
-      Begin TextField tfAnimateSpeed
+      Begin TextField txtAnimateSpeed
          AcceptTabs      =   False
          Alignment       =   2
          AutoDeactivate  =   True
@@ -223,7 +223,7 @@ Begin Window winMain
          Visible         =   True
          Width           =   64
       End
-      Begin TextField tfdPixelStep
+      Begin TextField txtPixelStep
          AcceptTabs      =   False
          Alignment       =   2
          AutoDeactivate  =   True
@@ -506,7 +506,7 @@ Begin Window winMain
          Visible         =   True
          Width           =   119
       End
-      Begin PopupMenu pumThumbSizePerc
+      Begin PopupMenu pmThumbSizePerc
          AutoDeactivate  =   True
          Bold            =   False
          DataField       =   ""
@@ -630,7 +630,7 @@ Begin Window winMain
          Visible         =   True
          Width           =   88
       End
-      Begin TextField tfdImageSpacer
+      Begin TextField txtImageSpacer
          AcceptTabs      =   False
          Alignment       =   2
          AutoDeactivate  =   True
@@ -741,7 +741,7 @@ Begin Window winMain
          Visible         =   True
          Width           =   88
       End
-      Begin CheckBox cbxShowNames
+      Begin CheckBox chkShowNames
          AutoDeactivate  =   True
          Bold            =   False
          Caption         =   ""
@@ -781,7 +781,7 @@ End
 	#tag Event
 		Sub Open()
 		  // SET NUDEG VALUE
-		  nudgeVal = 10
+		  iNudgeVal = 10
 		End Sub
 	#tag EndEvent
 
@@ -789,30 +789,30 @@ End
 	#tag Method, Flags = &h0
 		Function calculateScrollW() As Integer
 		  // CALCULATE SCROLL BAR MAXIMUM
-		  Dim thisMaximumW as Integer = (cvsScroller.pictureArray.Ubound +1) * (cvsScroller.thisScaledW)
+		  Dim thisMaximumW as Integer = (cvsScroller.aroPicture.Ubound +1) * (cvsScroller.iScaledW)
 		  Return thisMaximumW
 		End Function
 	#tag EndMethod
 
 
-	#tag Property, Flags = &h0
-		animateSpeedMS As Integer
-	#tag EndProperty
-
-	#tag Property, Flags = &h0
-		animationDirection As Integer
-	#tag EndProperty
-
 	#tag Property, Flags = &h21
-		Private isAnimating As Boolean
+		Private bAnimating As Boolean
 	#tag EndProperty
 
 	#tag Property, Flags = &h0
-		nudgeVal As Integer
+		iAnimateSpeedMS As Integer
 	#tag EndProperty
 
 	#tag Property, Flags = &h0
-		pixelStepVal As Integer
+		iAnimationDirection As Integer
+	#tag EndProperty
+
+	#tag Property, Flags = &h0
+		iNudgeVal As Integer
+	#tag EndProperty
+
+	#tag Property, Flags = &h0
+		iPixelStepVal As Integer
 	#tag EndProperty
 
 
@@ -830,18 +830,18 @@ End
 		  g.AntiAlias = True
 		  
 		  // LOOP PICTURE ARRAY TO DRAW EACH IMAGE
-		  For i As Integer = 0 To Me.pictureArray.Ubound
+		  For i As Integer = 0 To Me.aroPicture.Ubound
 		    
 		    // PREPARE IMAGE PROPERTIES
 		    Dim thisLeftPOS, thisTopPOS as Integer
-		    Dim thisImage as Picture = Me.pictureArray(i).pictureImage
-		    Me.thisScaledW  = thisImage.Width * me.thumbPercFactor
-		    Me.thisScaledH = thisImage.Height * me.thumbPercFactor
+		    Dim thisImage as Picture = Me.aroPicture(i).pictureImage
+		    Me.iScaledW  = thisImage.Width * me.dThumbPercFactor
+		    Me.iScaledH = thisImage.Height * me.dThumbPercFactor
 		    
 		    // PREPARE IMAGE NAME PROPERTIES
 		    g.TextSize = 16
 		    g.TextFont = "System"
-		    Dim thisImageName as String = Me.pictureArray(i).fFolderItem.Name
+		    Dim thisImageName as String = Me.aroPicture(i).fFolderItem.Name
 		    Dim thisImageNameXPOS, thisImageNameYPOS as Integer 
 		    Dim thisImageNameH as Integer = (g.StringHeight(thisImageName, 800) + 10)
 		    Dim thisImageNameW as Double = g.StringWidth(thisImageName)
@@ -850,46 +850,46 @@ End
 		      // DRAW FIRST IMAGE ONLY ON CANVAS
 		      
 		      // X-POS CALULCATION
-		      thisLeftPOS = Me.pictureArray(i).left
+		      thisLeftPOS = Me.aroPicture(i).left
 		      // UPDATE RECT X POS
-		      Me.pictureArray(i).imageRect.Left = thisLeftPOS
+		      Me.aroPicture(i).imageRect.Left = thisLeftPOS
 		      // UPDATE IMAGE NAME X/Y POS
-		      Me.pictureArray(i).imageNameXpos = thisLeftPOS
-		      wrapWidth = Me.thisScaledW + 4
+		      Me.aroPicture(i).imageNameXpos = thisLeftPOS
+		      wrapWidth = Me.iScaledW + 4
 		      
 		      // Y-POS CALULCATION
 		      thisTopPOS = 20
-		      Me.pictureArray(i).imageNameYpos = thisTopPOS + Me.thisScaledH + thisImageNameH
+		      Me.aroPicture(i).imageNameYpos = thisTopPOS + Me.iScaledH + thisImageNameH
 		      // UPDATE RECT Y POS
-		      Me.pictureArray(i).imageRect.Top = thisTopPOS
+		      Me.aroPicture(i).imageRect.Top = thisTopPOS
 		      
 		    Elseif i <> 0 THEN
 		      // DRAW ALL REMAINING IMAGES ON CANVAS
 		      // X-POS CALULCATION
-		      Dim lastImgScaledW as Integer =  (Me.pictureArray(i-1).pictureImage.Width +  Me.imageSpacer) * me.thumbPercFactor
-		      Me.pictureArray(i).left = Me.pictureArray(i-1).left  +  lastImgScaledW
-		      thisLeftPOS = Me.pictureArray(i).left
+		      Dim lastImgScaledW as Integer =  (Me.aroPicture(i-1).pictureImage.Width +  Me.iImageSpacer) * me.dThumbPercFactor
+		      Me.aroPicture(i).left = Me.aroPicture(i-1).left  +  lastImgScaledW
+		      thisLeftPOS = Me.aroPicture(i).left
 		      // UPDATE RECT X/Y POS
-		      Me.pictureArray(i).imageRect.Left = thisLeftPOS
+		      Me.aroPicture(i).imageRect.Left = thisLeftPOS
 		      // UPDATE IMAGE NAME X/Y POS
-		      Me.pictureArray(i).imageNameXpos = thisLeftPOS
-		      wrapWidth = Me.thisScaledW + 4
+		      Me.aroPicture(i).imageNameXpos = thisLeftPOS
+		      wrapWidth = Me.iScaledW + 4
 		      
 		      // Y-POS CALULCATION
 		      thisTopPOS = 20
-		      Me.pictureArray(i).imageNameYpos = thisTopPOS + Me.thisScaledH + thisImageNameH
+		      Me.aroPicture(i).imageNameYpos = thisTopPOS + Me.iScaledH + thisImageNameH
 		      // UPDATE RECT Y POS
-		      Me.pictureArray(i).imageRect.Top = thisTopPOS
+		      Me.aroPicture(i).imageRect.Top = thisTopPOS
 		    End If
 		    
 		    // DRAW IMAGE
-		    g.DrawPicture(thisImage, thisLeftPOS, thisTopPOS, Me.thisScaledW, Me.thisScaledH, 0, 0, thisImage.Width, thisImage.Height)
+		    g.DrawPicture(thisImage, thisLeftPOS, thisTopPOS, Me.iScaledW, Me.iScaledH, 0, 0, thisImage.Width, thisImage.Height)
 		    
 		    // DRAW IMAGE NAME
-		    if Me.showImageNames = True Then
+		    if Me.bShowImageNames = True Then
 		      g.ForeColor = &c000000
 		      dim test as integer = g.TextSize
-		      g.DrawString(thisImageName, Me.pictureArray(i).imageNameXpos, Me.pictureArray(i).imageNameYpos, wrapWidth)
+		      g.DrawString(thisImageName, Me.aroPicture(i).imageNameXpos, Me.aroPicture(i).imageNameYpos, wrapWidth)
 		    end if
 		    
 		  Next i
@@ -916,7 +916,7 @@ End
 	#tag EndEvent
 	#tag Event
 		Sub MouseEnter()
-		  Select Case isAnimating
+		  Select Case bAnimating
 		  Case True
 		    tmrAnimationHandler.Mode = Timer.ModeOff
 		  End Select
@@ -924,7 +924,7 @@ End
 	#tag EndEvent
 	#tag Event
 		Sub MouseExit()
-		  Select Case isAnimating
+		  Select Case bAnimating
 		  Case True
 		    tmrAnimationHandler.Mode = Timer.ModeMultiple
 		  End Select
@@ -940,12 +940,12 @@ End
 		  Dim theClickedPoint as REALbasic.Point
 		  theClickedPoint =  new realbasic.point(x,y)
 		  
-		  If me.pictureArray.Ubound <> -1 Then
-		    For i = 0 to me.pictureArray.Ubound
+		  If me.aroPicture.Ubound <> -1 Then
+		    For i = 0 to me.aroPicture.Ubound
 		      
-		      If me.pictureArray(i).imageRect <> NIL then
-		        if me.pictureArray(i).imageRect.Contains ( theClickedPoint) = True Then
-		          me.pictureArray(i).fFolderItem.Launch(True)
+		      If me.aroPicture(i).imageRect <> NIL then
+		        if me.aroPicture(i).imageRect.Contains ( theClickedPoint) = True Then
+		          me.aroPicture(i).fFolderItem.Launch(True)
 		        end if
 		      End If
 		      
@@ -958,8 +958,8 @@ End
 #tag Events tmrAnimationHandler
 	#tag Event
 		Sub Action()
-		  me.Period = animateSpeedMS
-		  cvsScroller.animateScroll(pixelStepVal, animationDirection)
+		  me.Period = iAnimateSpeedMS
+		  cvsScroller.animateScroll(iPixelStepVal, iAnimationDirection)
 		  
 		End Sub
 	#tag EndEvent
@@ -968,25 +968,25 @@ End
 	#tag Event
 		Sub Action()
 		  If tmrAnimationHandler.Mode = timer.ModeOff Then
-		    tmrAnimationHandler.Period = animateSpeedMS
+		    tmrAnimationHandler.Period = iAnimateSpeedMS
 		    tmrAnimationHandler.Mode = timer.ModeMultiple
 		    Me.Caption = "Stop"
 		    scbScrollControl.Enabled = False
-		    isAnimating = True
+		    bAnimating = True
 		    
 		  Elseif tmrAnimationHandler.Mode = timer.ModeMultiple Then
 		    tmrAnimationHandler.Mode = timer.ModeOff
 		    Me.Caption = "Animate"
 		    scbScrollControl.Enabled = True
-		    isAnimating = False
+		    bAnimating = False
 		  End If
 		End Sub
 	#tag EndEvent
 #tag EndEvents
-#tag Events tfAnimateSpeed
+#tag Events txtAnimateSpeed
 	#tag Event
 		Sub Open()
-		  animateSpeedMS = 10
+		  iAnimateSpeedMS = 10
 		End Sub
 	#tag EndEvent
 	#tag Event
@@ -994,22 +994,22 @@ End
 		  // SET THE ANIMATION SPEED IN MS
 		  Dim thisStrVal as String = Trim(Me.Text)
 		  Dim thisVal as Double = CDbl(thisStrVal)
-		  animateSpeedMS = thisVal
+		  iAnimateSpeedMS = thisVal
 		End Sub
 	#tag EndEvent
 #tag EndEvents
-#tag Events tfdPixelStep
+#tag Events txtPixelStep
 	#tag Event
 		Sub TextChange()
 		  // SET THE PIXEL STEP VALUE
 		  Dim thisStrVal as String = Trim(Me.Text)
 		  Dim thisVal as Double = CDbl(thisStrVal)
-		  pixelStepVal = thisVal
+		  iPixelStepVal = thisVal
 		End Sub
 	#tag EndEvent
 	#tag Event
 		Sub Open()
-		  pixelStepVal = 1
+		  iPixelStepVal = 1
 		End Sub
 	#tag EndEvent
 #tag EndEvents
@@ -1019,7 +1019,7 @@ End
 		  // CONTROLS THE ANIMATION DIRECTION
 		  // 0 = LEFT TO RIGHT (DEFAULT)
 		  // 1 = RIGHT TO LEFT
-		  animationDirection = itemIndex
+		  iAnimationDirection = itemIndex
 		End Sub
 	#tag EndEvent
 	#tag Event
@@ -1033,7 +1033,7 @@ End
 	#tag Event
 		Sub Action()
 		  // NUDGE ALL PICTURES FORWARD IN PIXELS
-		  cvsScroller.nudge(-nudgeVal)
+		  cvsScroller.nudge(-iNudgeVal)
 		End Sub
 	#tag EndEvent
 #tag EndEvents
@@ -1041,7 +1041,7 @@ End
 	#tag Event
 		Sub Action()
 		  // NUDGE ALL PICTURES BACK IN PIXELS
-		  cvsScroller.nudge(nudgeVal)
+		  cvsScroller.nudge(iNudgeVal)
 		  
 		End Sub
 	#tag EndEvent
@@ -1049,9 +1049,9 @@ End
 #tag Events scbScrollControl
 	#tag Event
 		Sub ValueChanged()
-		  for i as integer = 0 to cvsScroller.pictureArray.Ubound
-		    cvsScroller.pictureArray(i).left = -me.value
-		    cvsScroller.pictureArray(i).imageNameXpos = -me.value
+		  for i as integer = 0 to cvsScroller.aroPicture.Ubound
+		    cvsScroller.aroPicture(i).left = -me.value
+		    cvsScroller.aroPicture(i).imageNameXpos = -me.value
 		  next i
 		  cvsScroller.Invalidate(False)
 		End Sub
@@ -1063,7 +1063,7 @@ End
 		End Sub
 	#tag EndEvent
 #tag EndEvents
-#tag Events pumThumbSizePerc
+#tag Events pmThumbSizePerc
 	#tag Event
 		Sub Change()
 		  Dim thisValRawStr as String = Trim(me.Text)
@@ -1071,7 +1071,7 @@ End
 		  Dim startTrim as Integer = thisValStrLen - 1
 		  Dim thisValStr as String = thisValRawStr.left(startTrim)
 		  Dim thisVal as Double = CDbl(thisValStr)/100
-		  cvsScroller.thumbPercFactor = thisVal
+		  cvsScroller.dThumbPercFactor = thisVal
 		  cvsScroller.Invalidate(False)
 		End Sub
 	#tag EndEvent
@@ -1094,13 +1094,13 @@ End
 		End Sub
 	#tag EndEvent
 #tag EndEvents
-#tag Events tfdImageSpacer
+#tag Events txtImageSpacer
 	#tag Event
 		Sub TextChange()
 		  // SET THE PIXEL STEP VALUE
 		  Dim thisStrVal as String = Trim(Me.Text)
 		  Dim thisVal as Double = CDbl(thisStrVal)
-		  cvsScroller.imageSpacer  = thisVal
+		  cvsScroller.iImageSpacer  = thisVal
 		  cvsScroller.Invalidate(False)
 		End Sub
 	#tag EndEvent
@@ -1108,14 +1108,14 @@ End
 		Sub Open()
 		  Dim thisStartVal as Integer = 50
 		  Me.Text = Str(thisStartVal)
-		  cvsScroller.imageSpacer = thisStartVal
+		  cvsScroller.iImageSpacer = thisStartVal
 		End Sub
 	#tag EndEvent
 #tag EndEvents
-#tag Events cbxShowNames
+#tag Events chkShowNames
 	#tag Event
 		Sub Action()
-		  cvsScroller.showImageNames = Me.Value
+		  cvsScroller.bShowImageNames = Me.Value
 		  cvsScroller.Invalidate(False)
 		End Sub
 	#tag EndEvent
@@ -1126,16 +1126,6 @@ End
 	#tag EndEvent
 #tag EndEvents
 #tag ViewBehavior
-	#tag ViewProperty
-		Name="animateSpeedMS"
-		Group="Behavior"
-		Type="Integer"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="animationDirection"
-		Group="Behavior"
-		Type="Integer"
-	#tag EndViewProperty
 	#tag ViewProperty
 		Name="BackColor"
 		Visible=true
@@ -1215,6 +1205,16 @@ End
 		Type="Integer"
 	#tag EndViewProperty
 	#tag ViewProperty
+		Name="iAnimateSpeedMS"
+		Group="Behavior"
+		Type="Integer"
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="iAnimationDirection"
+		Group="Behavior"
+		Type="Integer"
+	#tag EndViewProperty
+	#tag ViewProperty
 		Name="ImplicitInstance"
 		Visible=true
 		Group="Behavior"
@@ -1228,6 +1228,16 @@ End
 		Group="ID"
 		Type="String"
 		EditorType="String"
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="iNudgeVal"
+		Group="Behavior"
+		Type="Integer"
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="iPixelStepVal"
+		Group="Behavior"
+		Type="Integer"
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="LiveResize"
@@ -1307,16 +1317,6 @@ End
 		Group="ID"
 		Type="String"
 		EditorType="String"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="nudgeVal"
-		Group="Behavior"
-		Type="Integer"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="pixelStepVal"
-		Group="Behavior"
-		Type="Integer"
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="Placement"
