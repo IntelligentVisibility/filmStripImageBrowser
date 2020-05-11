@@ -3,7 +3,6 @@ Begin Window winMain
    BackColor       =   &cFFFFFF00
    Backdrop        =   0
    CloseButton     =   True
-   Compatibility   =   ""
    Composite       =   False
    Frame           =   0
    FullScreen      =   False
@@ -11,7 +10,7 @@ Begin Window winMain
    HasBackColor    =   False
    Height          =   350
    ImplicitInstance=   True
-   LiveResize      =   True
+   LiveResize      =   "True"
    MacProcID       =   0
    MaxHeight       =   32000
    MaximizeButton  =   True
@@ -31,14 +30,17 @@ Begin Window winMain
       AcceptTabs      =   False
       AutoDeactivate  =   True
       Backdrop        =   0
+      bShowImageNames =   False
       DoubleBuffer    =   False
+      dThumbPercFactor=   0.0
       Enabled         =   True
-      EraseBackground =   True
       Height          =   190
       HelpTag         =   ""
-      imageSpacer     =   0
+      iImageSpacer    =   0
       Index           =   -2147483648
       InitialParent   =   ""
+      iScaledH        =   0
+      iScaledW        =   0
       Left            =   0
       LockBottom      =   True
       LockedInPosition=   False
@@ -46,13 +48,9 @@ Begin Window winMain
       LockRight       =   True
       LockTop         =   True
       Scope           =   0
-      showImageNames  =   False
       TabIndex        =   4
       TabPanelIndex   =   0
       TabStop         =   True
-      thisScaledH     =   0
-      thisScaledW     =   0
-      thumbPercFactor =   0.0
       Top             =   15
       Transparent     =   True
       UseFocusRing    =   True
@@ -85,6 +83,7 @@ Begin Window winMain
       TabPanelIndex   =   0
       TabStop         =   True
       Top             =   212
+      Transparent     =   True
       Visible         =   True
       Width           =   21
    End
@@ -112,13 +111,14 @@ Begin Window winMain
       TextSize        =   0.0
       TextUnit        =   0
       Top             =   266
+      Transparent     =   True
       Underline       =   False
       Visible         =   True
       Width           =   379
       Begin PushButton btnAnimate
          AutoDeactivate  =   True
          Bold            =   False
-         ButtonStyle     =   "0"
+         ButtonStyle     =   0
          Cancel          =   False
          Caption         =   "Animate"
          Default         =   False
@@ -142,6 +142,7 @@ Begin Window winMain
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   301
+         Transparent     =   True
          Underline       =   False
          Visible         =   True
          Width           =   80
@@ -168,6 +169,7 @@ Begin Window winMain
          Selectable      =   False
          TabIndex        =   1
          TabPanelIndex   =   0
+         TabStop         =   True
          Text            =   "Speed"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -218,6 +220,7 @@ Begin Window winMain
          TextSize        =   11.0
          TextUnit        =   0
          Top             =   301
+         Transparent     =   True
          Underline       =   False
          UseFocusRing    =   False
          Visible         =   True
@@ -261,6 +264,7 @@ Begin Window winMain
          TextSize        =   11.0
          TextUnit        =   0
          Top             =   301
+         Transparent     =   True
          Underline       =   False
          UseFocusRing    =   False
          Visible         =   True
@@ -288,6 +292,7 @@ Begin Window winMain
          Selectable      =   False
          TabIndex        =   4
          TabPanelIndex   =   0
+         TabStop         =   True
          Text            =   "Pixel Step"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -315,8 +320,10 @@ Begin Window winMain
          Scope           =   0
          Segments        =   "L to R\n\nTrue\rR to L\n\nFalse"
          SelectionType   =   0
+         TabIndex        =   5
          TabPanelIndex   =   0
          Top             =   301
+         Transparent     =   True
          Visible         =   True
          Width           =   104
       End
@@ -342,6 +349,7 @@ Begin Window winMain
          Selectable      =   False
          TabIndex        =   5
          TabPanelIndex   =   0
+         TabStop         =   True
          Text            =   "Scroll Direction"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -358,7 +366,7 @@ Begin Window winMain
    Begin PushButton btnRightNudge
       AutoDeactivate  =   True
       Bold            =   False
-      ButtonStyle     =   "0"
+      ButtonStyle     =   0
       Cancel          =   False
       Caption         =   ">>"
       Default         =   False
@@ -382,6 +390,7 @@ Begin Window winMain
       TextSize        =   0.0
       TextUnit        =   0
       Top             =   223
+      Transparent     =   True
       Underline       =   False
       Visible         =   True
       Width           =   45
@@ -389,7 +398,7 @@ Begin Window winMain
    Begin PushButton btnLeftNudge
       AutoDeactivate  =   True
       Bold            =   False
-      ButtonStyle     =   "0"
+      ButtonStyle     =   0
       Cancel          =   False
       Caption         =   "<<"
       Default         =   False
@@ -413,6 +422,7 @@ Begin Window winMain
       TextSize        =   0.0
       TextUnit        =   0
       Top             =   223
+      Transparent     =   True
       Underline       =   False
       Visible         =   True
       Width           =   45
@@ -441,6 +451,7 @@ Begin Window winMain
       TabPanelIndex   =   0
       TabStop         =   True
       Top             =   223
+      Transparent     =   True
       Value           =   0
       Visible         =   True
       Width           =   502
@@ -469,6 +480,7 @@ Begin Window winMain
       TextSize        =   0.0
       TextUnit        =   0
       Top             =   265
+      Transparent     =   True
       Underline       =   False
       Visible         =   True
       Width           =   124
@@ -494,6 +506,7 @@ Begin Window winMain
          Selectable      =   False
          TabIndex        =   6
          TabPanelIndex   =   0
+         TabStop         =   True
          Text            =   "Thumbnail Size %"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -533,6 +546,7 @@ Begin Window winMain
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   301
+         Transparent     =   True
          Underline       =   False
          Visible         =   True
          Width           =   106
@@ -541,7 +555,7 @@ Begin Window winMain
    Begin PushButton btnClear
       AutoDeactivate  =   True
       Bold            =   False
-      ButtonStyle     =   "0"
+      ButtonStyle     =   0
       Cancel          =   False
       Caption         =   "Clear"
       Default         =   False
@@ -565,6 +579,7 @@ Begin Window winMain
       TextSize        =   0.0
       TextUnit        =   0
       Top             =   223
+      Transparent     =   True
       Underline       =   False
       Visible         =   True
       Width           =   50
@@ -593,6 +608,7 @@ Begin Window winMain
       TextSize        =   0.0
       TextUnit        =   0
       Top             =   265
+      Transparent     =   True
       Underline       =   False
       Visible         =   True
       Width           =   203
@@ -618,6 +634,7 @@ Begin Window winMain
          Selectable      =   False
          TabIndex        =   0
          TabPanelIndex   =   0
+         TabStop         =   True
          Text            =   "Image Spaces"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -668,6 +685,7 @@ Begin Window winMain
          TextSize        =   11.0
          TextUnit        =   0
          Top             =   300
+         Transparent     =   True
          Underline       =   False
          UseFocusRing    =   False
          Visible         =   True
@@ -695,6 +713,7 @@ Begin Window winMain
          Selectable      =   False
          TabIndex        =   2
          TabPanelIndex   =   0
+         TabStop         =   True
          Text            =   "px"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -729,6 +748,7 @@ Begin Window winMain
          Selectable      =   False
          TabIndex        =   3
          TabPanelIndex   =   0
+         TabStop         =   True
          Text            =   "Show Names"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -768,6 +788,7 @@ Begin Window winMain
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   299
+         Transparent     =   True
          Underline       =   False
          Value           =   True
          Visible         =   True
@@ -1127,39 +1148,43 @@ End
 #tag EndEvents
 #tag ViewBehavior
 	#tag ViewProperty
-		Name="BackColor"
+		Name="MinimumWidth"
 		Visible=true
-		Group="Background"
-		InitialValue="&hFFFFFF"
-		Type="Color"
+		Group="Size"
+		InitialValue="64"
+		Type="Integer"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
-		Name="Backdrop"
+		Name="MinimumHeight"
 		Visible=true
-		Group="Background"
-		Type="Picture"
-		EditorType="Picture"
+		Group="Size"
+		InitialValue="64"
+		Type="Integer"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
-		Name="CloseButton"
+		Name="MaximumWidth"
 		Visible=true
-		Group="Frame"
-		InitialValue="True"
-		Type="Boolean"
-		EditorType="Boolean"
+		Group="Size"
+		InitialValue="32000"
+		Type="Integer"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
-		Name="Composite"
-		Group="OS X (Carbon)"
-		InitialValue="False"
-		Type="Boolean"
+		Name="MaximumHeight"
+		Visible=true
+		Group="Size"
+		InitialValue="32000"
+		Type="Integer"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
-		Name="Frame"
+		Name="Type"
 		Visible=true
 		Group="Frame"
 		InitialValue="0"
-		Type="Integer"
+		Type="Types"
 		EditorType="Enum"
 		#tag EnumValues
 			"0 - Document"
@@ -1176,154 +1201,43 @@ End
 		#tag EndEnumValues
 	#tag EndViewProperty
 	#tag ViewProperty
-		Name="FullScreen"
-		Group="Behavior"
-		InitialValue="False"
-		Type="Boolean"
-		EditorType="Boolean"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="FullScreenButton"
-		Visible=true
-		Group="Frame"
-		InitialValue="False"
-		Type="Boolean"
-		EditorType="Boolean"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="HasBackColor"
-		Visible=true
-		Group="Background"
-		InitialValue="False"
-		Type="Boolean"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="Height"
-		Visible=true
-		Group="Size"
-		InitialValue="400"
-		Type="Integer"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="iAnimateSpeedMS"
-		Group="Behavior"
-		Type="Integer"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="iAnimationDirection"
-		Group="Behavior"
-		Type="Integer"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="ImplicitInstance"
-		Visible=true
-		Group="Behavior"
-		InitialValue="True"
-		Type="Boolean"
-		EditorType="Boolean"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="Interfaces"
-		Visible=true
-		Group="ID"
-		Type="String"
-		EditorType="String"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="iNudgeVal"
-		Group="Behavior"
-		Type="Integer"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="iPixelStepVal"
-		Group="Behavior"
-		Type="Integer"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="LiveResize"
-		Visible=true
-		Group="Behavior"
-		InitialValue="True"
-		Type="Boolean"
-		EditorType="Boolean"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="MacProcID"
-		Group="OS X (Carbon)"
-		InitialValue="0"
-		Type="Integer"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="MaxHeight"
-		Visible=true
-		Group="Size"
-		InitialValue="32000"
-		Type="Integer"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="MaximizeButton"
+		Name="HasCloseButton"
 		Visible=true
 		Group="Frame"
 		InitialValue="True"
 		Type="Boolean"
-		EditorType="Boolean"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
-		Name="MaxWidth"
-		Visible=true
-		Group="Size"
-		InitialValue="32000"
-		Type="Integer"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="MenuBar"
-		Visible=true
-		Group="Menus"
-		Type="MenuBar"
-		EditorType="MenuBar"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="MenuBarVisible"
-		Group="Behavior"
-		InitialValue="True"
-		Type="Boolean"
-		EditorType="Boolean"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="MinHeight"
-		Visible=true
-		Group="Size"
-		InitialValue="64"
-		Type="Integer"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="MinimizeButton"
+		Name="HasMaximizeButton"
 		Visible=true
 		Group="Frame"
 		InitialValue="True"
 		Type="Boolean"
-		EditorType="Boolean"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
-		Name="MinWidth"
+		Name="HasMinimizeButton"
 		Visible=true
-		Group="Size"
-		InitialValue="64"
-		Type="Integer"
+		Group="Frame"
+		InitialValue="True"
+		Type="Boolean"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
-		Name="Name"
+		Name="HasFullScreenButton"
 		Visible=true
-		Group="ID"
-		Type="String"
-		EditorType="String"
+		Group="Frame"
+		InitialValue="False"
+		Type="Boolean"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
-		Name="Placement"
+		Name="DefaultLocation"
 		Visible=true
 		Group="Behavior"
 		InitialValue="0"
-		Type="Integer"
+		Type="Locations"
 		EditorType="Enum"
 		#tag EnumValues
 			"0 - Default"
@@ -1334,19 +1248,148 @@ End
 		#tag EndEnumValues
 	#tag EndViewProperty
 	#tag ViewProperty
+		Name="HasBackgroundColor"
+		Visible=true
+		Group="Background"
+		InitialValue="False"
+		Type="Boolean"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="BackgroundColor"
+		Visible=true
+		Group="Background"
+		InitialValue="&hFFFFFF"
+		Type="Color"
+		EditorType="Color"
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Backdrop"
+		Visible=true
+		Group="Background"
+		InitialValue=""
+		Type="Picture"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Composite"
+		Visible=false
+		Group="OS X (Carbon)"
+		InitialValue="False"
+		Type="Boolean"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="FullScreen"
+		Visible=false
+		Group="Behavior"
+		InitialValue="False"
+		Type="Boolean"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Height"
+		Visible=true
+		Group="Size"
+		InitialValue="400"
+		Type="Integer"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="iAnimateSpeedMS"
+		Visible=false
+		Group="Behavior"
+		InitialValue=""
+		Type="Integer"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="iAnimationDirection"
+		Visible=false
+		Group="Behavior"
+		InitialValue=""
+		Type="Integer"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="ImplicitInstance"
+		Visible=true
+		Group="Behavior"
+		InitialValue="True"
+		Type="Boolean"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Interfaces"
+		Visible=true
+		Group="ID"
+		InitialValue=""
+		Type="String"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="iNudgeVal"
+		Visible=false
+		Group="Behavior"
+		InitialValue=""
+		Type="Integer"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="iPixelStepVal"
+		Visible=false
+		Group="Behavior"
+		InitialValue=""
+		Type="Integer"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="MacProcID"
+		Visible=false
+		Group="OS X (Carbon)"
+		InitialValue="0"
+		Type="Integer"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="MenuBar"
+		Visible=true
+		Group="Menus"
+		InitialValue=""
+		Type="MenuBar"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="MenuBarVisible"
+		Visible=false
+		Group="Behavior"
+		InitialValue="True"
+		Type="Boolean"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Name"
+		Visible=true
+		Group="ID"
+		InitialValue=""
+		Type="String"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
 		Name="Resizeable"
 		Visible=true
 		Group="Frame"
 		InitialValue="True"
 		Type="Boolean"
-		EditorType="Boolean"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="Super"
 		Visible=true
 		Group="ID"
+		InitialValue=""
 		Type="String"
-		EditorType="String"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="Title"
@@ -1354,6 +1397,7 @@ End
 		Group="Frame"
 		InitialValue="Untitled"
 		Type="String"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="Visible"
@@ -1361,7 +1405,7 @@ End
 		Group="Behavior"
 		InitialValue="True"
 		Type="Boolean"
-		EditorType="Boolean"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="Width"
@@ -1369,5 +1413,6 @@ End
 		Group="Size"
 		InitialValue="600"
 		Type="Integer"
+		EditorType=""
 	#tag EndViewProperty
 #tag EndViewBehavior
