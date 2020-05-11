@@ -3,10 +3,10 @@ Protected Class clsCanvas
 Inherits Canvas
 	#tag Event
 		Sub DropObject(obj As DragItem, action As Integer)
-		  Dim thisObject as DragItem = obj
-		  Dim thisAction as Integer = action
+		  Var thisObject as DragItem = obj
+		  Var thisAction as Integer = action
 		  
-		  dim fItem as FolderItem = thisObject.FolderItem
+		  Var fItem as FolderItem = thisObject.FolderItem
 		  
 		  Select Case fItem.Directory
 		  Case True
@@ -15,7 +15,7 @@ Inherits Canvas
 		    
 		  Case False
 		    // PROCESS IMAGE FILE
-		    addImage(fItem)
+		    adVarage(fItem)
 		    
 		  End Select
 		  
@@ -52,8 +52,8 @@ Inherits Canvas
 		Sub addDirectory(dirFolderItem as FolderItem)
 		  // EXTRACT IMAGES FROM THE FOLDER
 		  If dirFolderItem <> Nil Then
-		    Dim thisPic as Picture
-		    Dim fileFolderitem as FolderItem
+		    Var thisPic as Picture
+		    Var fileFolderitem as FolderItem
 		    
 		    For i as Integer = 1 to dirFolderItem.Count
 		      fileFolderitem = dirFolderItem.Item(i)
@@ -61,7 +61,7 @@ Inherits Canvas
 		      
 		      if thisPic = nil then continue
 		      
-		      addImage(fileFolderitem)
+		      adVarage(fileFolderitem)
 		      
 		    Next
 		    
@@ -70,9 +70,9 @@ Inherits Canvas
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Sub addImage(fItem as FolderItem)
+		Sub adVarage(fItem as FolderItem)
 		  // ADD PICTURE CLASS TO PICTURE ARRAY
-		  Dim thisPictureClassEntry as New clsPicture
+		  Var thisPictureClassEntry as New clsPicture
 		  thisPictureClassEntry.pictureImage = Picture.Open(fItem)
 		  thisPictureClassEntry.fFolderItem = fItem
 		  thisPictureClassEntry.width = thisPictureClassEntry.pictureImage.Width
@@ -105,7 +105,7 @@ Inherits Canvas
 		    // LEFT TO RIGHT
 		    If aroPicture.Ubound <> -1 Then
 		      If aroPicture(0).left > Me.Width Then
-		        Dim lastImageLeft as Integer = (aroPicture.Ubound + 1) * iScaledW
+		        Var lastImageLeft as Integer = (aroPicture.Ubound + 1) * iScaledW
 		        aroPicture(0).left = -lastImageLeft 
 		      End If
 		    End If
@@ -117,7 +117,7 @@ Inherits Canvas
 		  Case 1
 		    // RIGHT TO LEFT
 		    If aroPicture.Ubound <> -1 Then
-		      Dim thisMarker as Integer = aroPicture(aroPicture.Ubound).left + iScaledW
+		      Var thisMarker as Integer = aroPicture(aroPicture.Ubound).left + iScaledW
 		      If thisMarker < 0 Then
 		        // Reset images to begin scrolling again
 		        aroPicture(0).left = me.width
@@ -137,7 +137,7 @@ Inherits Canvas
 
 	#tag Method, Flags = &h0
 		Sub Clear()
-		  redim aroPicture(-1)
+		  reDim aroPicture(-1)
 		  me.Invalidate(False)
 		End Sub
 	#tag EndMethod
@@ -187,35 +187,60 @@ Inherits Canvas
 
 	#tag ViewBehavior
 		#tag ViewProperty
-			Name="AcceptFocus"
-			Visible=true
-			Group="Behavior"
-			Type="Boolean"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="AcceptTabs"
-			Visible=true
-			Group="Behavior"
-			Type="Boolean"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="AutoDeactivate"
+			Name="AllowAutoDeactivate"
 			Visible=true
 			Group="Appearance"
 			InitialValue="True"
 			Type="Boolean"
+			EditorType=""
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="Tooltip"
+			Visible=true
+			Group="Appearance"
+			InitialValue=""
+			Type="String"
+			EditorType="MultiLineEditor"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="AllowFocusRing"
+			Visible=true
+			Group="Appearance"
+			InitialValue="True"
+			Type="Boolean"
+			EditorType=""
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="AllowFocus"
+			Visible=true
+			Group="Behavior"
+			InitialValue="False"
+			Type="Boolean"
+			EditorType=""
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="AllowTabs"
+			Visible=true
+			Group="Behavior"
+			InitialValue="False"
+			Type="Boolean"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Backdrop"
 			Visible=true
 			Group="Appearance"
+			InitialValue=""
 			Type="Picture"
-			EditorType="Picture"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="bShowImageNames"
+			Visible=false
 			Group="Behavior"
+			InitialValue=""
 			Type="Boolean"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="DoubleBuffer"
@@ -223,11 +248,15 @@ Inherits Canvas
 			Group="Behavior"
 			InitialValue="False"
 			Type="Boolean"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="dThumbPercFactor"
+			Visible=false
 			Group="Behavior"
+			InitialValue=""
 			Type="Double"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Enabled"
@@ -235,13 +264,7 @@ Inherits Canvas
 			Group="Appearance"
 			InitialValue="True"
 			Type="Boolean"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="EraseBackground"
-			Visible=true
-			Group="Behavior"
-			InitialValue="True"
-			Type="Boolean"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Height"
@@ -249,18 +272,15 @@ Inherits Canvas
 			Group="Position"
 			InitialValue="100"
 			Type="Integer"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="HelpTag"
-			Visible=true
-			Group="Appearance"
-			Type="String"
-			EditorType="MultiLineEditor"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="iImageSpacer"
+			Visible=false
 			Group="Behavior"
+			InitialValue=""
 			Type="Integer"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Index"
@@ -268,21 +288,31 @@ Inherits Canvas
 			Group="ID"
 			InitialValue="-2147483648"
 			Type="Integer"
-			EditorType="Integer"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="InitialParent"
+			Visible=false
+			Group=""
+			InitialValue=""
 			Type="String"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="iScaledH"
+			Visible=false
 			Group="Behavior"
+			InitialValue=""
 			Type="Integer"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="iScaledW"
+			Visible=false
 			Group="Behavior"
+			InitialValue=""
 			Type="Integer"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Left"
@@ -290,44 +320,55 @@ Inherits Canvas
 			Group="Position"
 			InitialValue="0"
 			Type="Integer"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="LockBottom"
 			Visible=true
 			Group="Position"
+			InitialValue=""
 			Type="Boolean"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="LockLeft"
 			Visible=true
 			Group="Position"
+			InitialValue=""
 			Type="Boolean"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="LockRight"
 			Visible=true
 			Group="Position"
+			InitialValue=""
 			Type="Boolean"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="LockTop"
 			Visible=true
 			Group="Position"
+			InitialValue=""
 			Type="Boolean"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Name"
 			Visible=true
 			Group="ID"
+			InitialValue=""
 			Type="String"
-			EditorType="String"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Super"
 			Visible=true
 			Group="ID"
+			InitialValue=""
 			Type="String"
-			EditorType="String"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="TabIndex"
@@ -335,12 +376,15 @@ Inherits Canvas
 			Group="Position"
 			InitialValue="0"
 			Type="Integer"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="TabPanelIndex"
+			Visible=false
 			Group="Position"
 			InitialValue="0"
 			Type="Integer"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="TabStop"
@@ -348,6 +392,7 @@ Inherits Canvas
 			Group="Position"
 			InitialValue="True"
 			Type="Boolean"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Top"
@@ -355,6 +400,7 @@ Inherits Canvas
 			Group="Position"
 			InitialValue="0"
 			Type="Integer"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Transparent"
@@ -362,14 +408,7 @@ Inherits Canvas
 			Group="Behavior"
 			InitialValue="True"
 			Type="Boolean"
-			EditorType="Boolean"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="UseFocusRing"
-			Visible=true
-			Group="Appearance"
-			InitialValue="True"
-			Type="Boolean"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Visible"
@@ -377,6 +416,7 @@ Inherits Canvas
 			Group="Appearance"
 			InitialValue="True"
 			Type="Boolean"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Width"
@@ -384,6 +424,7 @@ Inherits Canvas
 			Group="Position"
 			InitialValue="100"
 			Type="Integer"
+			EditorType=""
 		#tag EndViewProperty
 	#tag EndViewBehavior
 End Class

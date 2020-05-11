@@ -58,6 +58,7 @@ Begin Window winMain
       Width           =   770
    End
    Begin Timer tmrAnimationHandler
+      Enabled         =   True
       Index           =   -2147483648
       LockedInPosition=   False
       Mode            =   0
@@ -322,6 +323,7 @@ Begin Window winMain
          SelectionType   =   0
          TabIndex        =   5
          TabPanelIndex   =   0
+         TabStop         =   True
          Top             =   301
          Transparent     =   True
          Visible         =   True
@@ -810,7 +812,7 @@ End
 	#tag Method, Flags = &h0
 		Function calculateScrollW() As Integer
 		  // CALCULATE SCROLL BAR MAXIMUM
-		  Dim thisMaximumW as Integer = (cvsScroller.aroPicture.Ubound +1) * (cvsScroller.iScaledW)
+		  Var thisMaximumW as Integer = (cvsScroller.aroPicture.Ubound +1) * (cvsScroller.iScaledW)
 		  Return thisMaximumW
 		End Function
 	#tag EndMethod
@@ -854,19 +856,19 @@ End
 		  For i As Integer = 0 To Me.aroPicture.Ubound
 		    
 		    // PREPARE IMAGE PROPERTIES
-		    Dim thisLeftPOS, thisTopPOS as Integer
-		    Dim thisImage as Picture = Me.aroPicture(i).pictureImage
+		    Var thisLeftPOS, thisTopPOS as Integer
+		    Var thisImage as Picture = Me.aroPicture(i).pictureImage
 		    Me.iScaledW  = thisImage.Width * me.dThumbPercFactor
 		    Me.iScaledH = thisImage.Height * me.dThumbPercFactor
 		    
 		    // PREPARE IMAGE NAME PROPERTIES
 		    g.TextSize = 16
 		    g.TextFont = "System"
-		    Dim thisImageName as String = Me.aroPicture(i).fFolderItem.Name
-		    Dim thisImageNameXPOS, thisImageNameYPOS as Integer 
-		    Dim thisImageNameH as Integer = (g.StringHeight(thisImageName, 800) + 10)
-		    Dim thisImageNameW as Double = g.StringWidth(thisImageName)
-		    Dim wrapWidth as Integer
+		    Var thisImageName as String = Me.aroPicture(i).fFolderItem.Name
+		    Var thisImageNameXPOS, thisImageNameYPOS as Integer 
+		    Var thisImageNameH as Integer = (g.StringHeight(thisImageName, 800) + 10)
+		    Var thisImageNameW as Double = g.StringWidth(thisImageName)
+		    Var wrapWidth as Integer
 		    If  i = 0 Then
 		      // DRAW FIRST IMAGE ONLY ON CANVAS
 		      
@@ -887,7 +889,7 @@ End
 		    Elseif i <> 0 THEN
 		      // DRAW ALL REMAINING IMAGES ON CANVAS
 		      // X-POS CALULCATION
-		      Dim lastImgScaledW as Integer =  (Me.aroPicture(i-1).pictureImage.Width +  Me.iImageSpacer) * me.dThumbPercFactor
+		      Var lastImgScaledW as Integer =  (Me.aroPicture(i-1).pictureImage.Width +  Me.iImageSpacer) * me.dThumbPercFactor
 		      Me.aroPicture(i).left = Me.aroPicture(i-1).left  +  lastImgScaledW
 		      thisLeftPOS = Me.aroPicture(i).left
 		      // UPDATE RECT X/Y POS
@@ -909,7 +911,7 @@ End
 		    // DRAW IMAGE NAME
 		    if Me.bShowImageNames = True Then
 		      g.ForeColor = &c000000
-		      dim test as integer = g.TextSize
+		      Var test as integer = g.TextSize
 		      g.DrawString(thisImageName, Me.aroPicture(i).imageNameXpos, Me.aroPicture(i).imageNameYpos, wrapWidth)
 		    end if
 		    
@@ -919,7 +921,7 @@ End
 	#tag EndEvent
 	#tag Event
 		Function MouseWheel(X As Integer, Y As Integer, deltaX as Integer, deltaY as Integer) As Boolean
-		  Dim deltaValueType as Integer
+		  Var deltaValueType as Integer
 		  #If TargetMacOS OR TargetWin32 Then
 		    deltaValueType = deltaX
 		  #Elseif TargetLinux Then
@@ -956,9 +958,9 @@ End
 		  #Pragma DisableBoundsChecking
 		  #Pragma DisableBackgroundTasks
 		  
-		  Dim i as integer
+		  Var i as integer
 		  
-		  Dim theClickedPoint as REALbasic.Point
+		  Var theClickedPoint as REALbasic.Point
 		  theClickedPoint =  new realbasic.point(x,y)
 		  
 		  If me.aroPicture.Ubound <> -1 Then
@@ -1013,8 +1015,8 @@ End
 	#tag Event
 		Sub TextChange()
 		  // SET THE ANIMATION SPEED IN MS
-		  Dim thisStrVal as String = Trim(Me.Text)
-		  Dim thisVal as Double = CDbl(thisStrVal)
+		  Var thisStrVal as String = Trim(Me.Text)
+		  Var thisVal as Double = CDbl(thisStrVal)
 		  iAnimateSpeedMS = thisVal
 		End Sub
 	#tag EndEvent
@@ -1023,8 +1025,8 @@ End
 	#tag Event
 		Sub TextChange()
 		  // SET THE PIXEL STEP VALUE
-		  Dim thisStrVal as String = Trim(Me.Text)
-		  Dim thisVal as Double = CDbl(thisStrVal)
+		  Var thisStrVal as String = Trim(Me.Text)
+		  Var thisVal as Double = CDbl(thisStrVal)
 		  iPixelStepVal = thisVal
 		End Sub
 	#tag EndEvent
@@ -1087,11 +1089,11 @@ End
 #tag Events pmThumbSizePerc
 	#tag Event
 		Sub Change()
-		  Dim thisValRawStr as String = Trim(me.Text)
-		  Dim thisValStrLen as Integer = thisValRawStr.Len
-		  Dim startTrim as Integer = thisValStrLen - 1
-		  Dim thisValStr as String = thisValRawStr.left(startTrim)
-		  Dim thisVal as Double = CDbl(thisValStr)/100
+		  Var thisValRawStr as String = Trim(me.Text)
+		  Var thisValStrLen as Integer = thisValRawStr.Len
+		  Var startTrim as Integer = thisValStrLen - 1
+		  Var thisValStr as String = thisValRawStr.left(startTrim)
+		  Var thisVal as Double = CDbl(thisValStr)/100
 		  cvsScroller.dThumbPercFactor = thisVal
 		  cvsScroller.Invalidate(False)
 		End Sub
@@ -1119,15 +1121,15 @@ End
 	#tag Event
 		Sub TextChange()
 		  // SET THE PIXEL STEP VALUE
-		  Dim thisStrVal as String = Trim(Me.Text)
-		  Dim thisVal as Double = CDbl(thisStrVal)
+		  Var thisStrVal as String = Trim(Me.Text)
+		  Var thisVal as Double = CDbl(thisStrVal)
 		  cvsScroller.iImageSpacer  = thisVal
 		  cvsScroller.Invalidate(False)
 		End Sub
 	#tag EndEvent
 	#tag Event
 		Sub Open()
-		  Dim thisStartVal as Integer = 50
+		  Var thisStartVal as Integer = 50
 		  Me.Text = Str(thisStartVal)
 		  cvsScroller.iImageSpacer = thisStartVal
 		End Sub
